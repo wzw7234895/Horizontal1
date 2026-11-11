@@ -1,0 +1,37 @@
+{
+  "status": "completed",
+  "created_at": "2026-11-08T12:17:19.759649",
+  "base_dataset": "person_tracking\\data\\person_reviewed_v12_occlusion_augmented_20261108",
+  "supplement_datasets": [
+    "person_tracking\\data\\person_reviewed_v13_d03_hard_20261108",
+    "person_tracking\\data\\person_reviewed_v13_d04_hard_20261108"
+  ],
+  "merged_rows": 1278,
+  "added_rows": 115,
+  "skipped_duplicates": 0,
+  "added_by_camera": {
+    "D03": 43,
+    "D04": 72
+  },
+  "by_split": {
+    "test": 111,
+    "train": 1121,
+    "val": 46
+  },
+  "unique_images_by_split": {
+    "train": 975,
+    "val": 46,
+    "test": 111
+  },
+  "boxes_by_split": {
+    "train": 1163,
+    "val": 12,
+    "test": 43
+  },
+  "test_membership_source": "person_tracking\\data\\person_reviewed_v12_occlusion_augmented_20261108",
+  "test_set_sealed": true,
+  "test_images_and_labels_copied_unchanged": 111,
+  "training_started": false,
+  "test_split_used": false,
+  "initialization_checkpoint": "person_tracking\\runs\\train\\person_yolo11n_static_v12_occlusion_augmented_20261108\\weights\\best.pt"
+}

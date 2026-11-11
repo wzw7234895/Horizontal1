@@ -1,0 +1,8 @@
+# Install the appropriate PyTorch build first; see setup_env.ps1.
+ultralytics==8.4.202
+opencv-python==4.11.0.86
+numpy==1.26.4
+scipy>=1.11,<1.17
+lap==0.5.14
+PyYAML>=6,<7
+pytest>=8,<10

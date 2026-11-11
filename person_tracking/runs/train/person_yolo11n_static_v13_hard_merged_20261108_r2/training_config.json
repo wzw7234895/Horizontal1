@@ -1,0 +1,212 @@
+{
+  "model": "E:\\横向项目-目标检测\\person_tracking\\runs\\train\\person_yolo11n_static_v12_occlusion_augmented_20261108\\weights\\best.pt",
+  "model_sha256": "963c4f6d7a6fca6801096037710ba8be5f670c9979852071efd20df5da4f7d8c",
+  "dataset_yaml": "E:\\横向项目-目标检测\\person_tracking\\data\\person_reviewed_v13_hard_merged_20261108_r2\\data.yaml",
+  "dataset_summary": {
+    "status": "completed",
+    "created_at": "2026-11-08T12:17:19.759649",
+    "base_dataset": "person_tracking\\data\\person_reviewed_v12_occlusion_augmented_20261108",
+    "supplement_datasets": [
+      "person_tracking\\data\\person_reviewed_v13_d03_hard_20261108",
+      "person_tracking\\data\\person_reviewed_v13_d04_hard_20261108"
+    ],
+    "merged_rows": 1278,
+    "added_rows": 115,
+    "skipped_duplicates": 0,
+    "added_by_camera": {
+      "D03": 43,
+      "D04": 72
+    },
+    "by_split": {
+      "test": 111,
+      "train": 1121,
+      "val": 46
+    },
+    "unique_images_by_split": {
+      "train": 975,
+      "val": 46,
+      "test": 111
+    },
+    "boxes_by_split": {
+      "train": 1163,
+      "val": 12,
+      "test": 43
+    },
+    "test_membership_source": "person_tracking\\data\\person_reviewed_v12_occlusion_augmented_20261108",
+    "test_set_sealed": true,
+    "test_images_and_labels_copied_unchanged": 111,
+    "training_started": false,
+    "test_split_used": false,
+    "initialization_checkpoint": "person_tracking\\runs\\train\\person_yolo11n_static_v12_occlusion_augmented_20261108\\weights\\best.pt"
+  },
+  "annotation_audit": {
+    "status": "passed",
+    "audited_at": "2026-11-08T12:17:19.761650",
+    "review_status": {
+      "total": 1278,
+      "pending": 0,
+      "reviewed": 1278,
+      "excluded": 0
+    },
+    "base_dataset": "person_tracking\\data\\person_reviewed_v12_occlusion_augmented_20261108",
+    "supplement_datasets": [
+      "person_tracking\\data\\person_reviewed_v13_d03_hard_20261108",
+      "person_tracking\\data\\person_reviewed_v13_d04_hard_20261108"
+    ],
+    "exported_dataset": "E:\\横向项目-目标检测\\person_tracking\\data\\person_reviewed_v13_hard_merged_20261108_r2",
+    "merged_summary": {
+      "status": "completed",
+      "created_at": "2026-11-08T12:17:19.759649",
+      "base_dataset": "person_tracking\\data\\person_reviewed_v12_occlusion_augmented_20261108",
+      "supplement_datasets": [
+        "person_tracking\\data\\person_reviewed_v13_d03_hard_20261108",
+        "person_tracking\\data\\person_reviewed_v13_d04_hard_20261108"
+      ],
+      "merged_rows": 1278,
+      "added_rows": 115,
+      "skipped_duplicates": 0,
+      "added_by_camera": {
+        "D03": 43,
+        "D04": 72
+      },
+      "by_split": {
+        "test": 111,
+        "train": 1121,
+        "val": 46
+      },
+      "unique_images_by_split": {
+        "train": 975,
+        "val": 46,
+        "test": 111
+      },
+      "boxes_by_split": {
+        "train": 1163,
+        "val": 12,
+        "test": 43
+      },
+      "test_membership_source": "person_tracking\\data\\person_reviewed_v12_occlusion_augmented_20261108",
+      "test_set_sealed": true,
+      "test_images_and_labels_copied_unchanged": 111,
+      "training_started": false,
+      "test_split_used": false,
+      "initialization_checkpoint": "person_tracking\\runs\\train\\person_yolo11n_static_v12_occlusion_augmented_20261108\\weights\\best.pt"
+    },
+    "duplicate_rows_not_exported": [],
+    "fingerprints_file": "E:\\横向项目-目标检测\\person_tracking\\data\\person_reviewed_v13_hard_merged_20261108_r2\\fingerprints.json",
+    "fingerprints_sha256": "f8b477ff193c008af9af5fd95b5ee6e5ba516f9c323ad4034af32b249c28e6f6",
+    "export_metadata_sha256": {
+      "data.yaml": "1682848708ab48c4052d35fcf0b9bff4f1bdededa986d4bbba1c35d5a2448cc3",
+      "exported_samples.jsonl": "e712f7f50d1d37e13c8d86788b4064db40629362e19a748b87f19e4e66b9a240"
+    },
+    "required_checkpoint_initialization": {
+      "path": "E:\\横向项目-目标检测\\person_tracking\\runs\\train\\person_yolo11n_static_v12_occlusion_augmented_20261108\\weights\\best.pt",
+      "sha256": "963c4f6d7a6fca6801096037710ba8be5f670c9979852071efd20df5da4f7d8c"
+    },
+    "test_set_sealed": true,
+    "test_split_used": false,
+    "test_split_evaluated": false,
+    "training_started": false,
+    "training_scope": "Static person detector; v12 train plus reviewed D03/D04 hard additions. No tracking, helmet or workwear labels.",
+    "limitations": [
+      "The additions and base recordings are from the same date and are not independent field validation.",
+      "The inherited v12 validation set remains the selection set; use a new-date holdout for acceptance.",
+      "Duplicate image content was retained only once for the merged additions and recorded in duplicate_rows_not_exported."
+    ]
+  },
+  "torch": "2.5.1+cu124",
+  "ultralytics": "8.4.202",
+  "python": "3.11.18 | packaged by Anaconda, Inc. | (main, Oct 26 2026, 18:13:29) [MSC v.1942 64 bit (AMD64)]",
+  "device": "0",
+  "hyperparameters": {
+    "data": "E:\\横向项目-目标检测\\person_tracking\\data\\person_reviewed_v13_hard_merged_20261108_r2\\data.yaml",
+    "epochs": 80,
+    "patience": 15,
+    "imgsz": 1280,
+    "batch": 2,
+    "workers": 0,
+    "device": "0",
+    "pretrained": true,
+    "optimizer": "AdamW",
+    "lr0": 0.0001,
+    "warmup_bias_lr": 0.0001,
+    "seed": 42,
+    "deterministic": true,
+    "amp": true,
+    "cache": false,
+    "plots": true,
+    "save_period": 10,
+    "close_mosaic": 10,
+    "mosaic": 0.25,
+    "scale": 0.25,
+    "project": "E:\\横向项目-目标检测\\person_tracking\\runs\\train",
+    "name": "person_yolo11n_static_v13_hard_merged_20261108_r2",
+    "exist_ok": true,
+    "verbose": true
+  },
+  "process_id": 30600,
+  "model_name": "best",
+  "weights_source": "explicit --weights",
+  "training_started": true,
+  "training_completed": true,
+  "training_status": "completed",
+  "gpu_availability_criteria": {
+    "minimum_free_mib": 2000,
+    "maximum_utilization_percent": 20,
+    "consecutive_samples": 2
+  },
+  "started_at": "2026-11-08T12:21:24.998263",
+  "test_split_used": false,
+  "test_split_evaluated": false,
+  "training_scope": "Static person detector; v12 train plus reviewed D03/D04 hard additions. No tracking, helmet or workwear labels.",
+  "export_input_contract": {
+    "metadata_sha256": {
+      "data.yaml": "1682848708ab48c4052d35fcf0b9bff4f1bdededa986d4bbba1c35d5a2448cc3",
+      "exported_samples.jsonl": "e712f7f50d1d37e13c8d86788b4064db40629362e19a748b87f19e4e66b9a240"
+    },
+    "partition_membership": {
+      "train": 1121,
+      "val": 46,
+      "test": 111
+    },
+    "routing_and_directory_membership_verified": true
+  },
+  "initialization": "Pretrained best; new optimizer, no previous training optimizer restored.",
+  "epochs_completed": 24,
+  "early_stopped": true,
+  "best_epoch": 9,
+  "best_epoch_metrics": {
+    "metrics/precision(B)": 0.92244,
+    "metrics/recall(B)": 0.99172,
+    "metrics/mAP50(B)": 0.98885,
+    "metrics/mAP50-95(B)": 0.61665,
+    "val/box_loss": 0.61994,
+    "val/cls_loss": 0.28816,
+    "val/dfl_loss": 0.50545
+  },
+  "best_epoch_metrics_source": "results.csv row for the recorded best-checkpoint save epoch",
+  "final_epoch_metrics": {
+    "metrics/precision(B)": 0.92251,
+    "metrics/recall(B)": 0.99259,
+    "metrics/mAP50(B)": 0.98885,
+    "metrics/mAP50-95(B)": 0.5639,
+    "val/box_loss": 0.6615,
+    "val/cls_loss": 0.28351,
+    "val/dfl_loss": 0.51874
+  },
+  "final_epoch_metrics_source": "results.csv final epoch; train return separately represents best revalidation",
+  "train_return_metrics": {
+    "metrics/precision(B)": 0.9222380275011854,
+    "metrics/recall(B)": 0.9890943575154103,
+    "metrics/mAP50(B)": 0.9888461538461539,
+    "metrics/mAP50-95(B)": 0.6165676573426574,
+    "fitness": 0.6165676573426574
+  },
+  "best_checkpoint": "E:\\横向项目-目标检测\\person_tracking\\runs\\train\\person_yolo11n_static_v13_hard_merged_20261108_r2\\weights\\best.pt",
+  "best_checkpoint_sha256": "31e57f30756ff3dc6306238842c627610dfe9d47d62b45e01df5e14045410fcc",
+  "last_checkpoint": "E:\\横向项目-目标检测\\person_tracking\\runs\\train\\person_yolo11n_static_v13_hard_merged_20261108_r2\\weights\\last.pt",
+  "last_checkpoint_sha256": "8da90548ae1b86d984c37156331dd184f43ba9a2c1fa700bf0e2b35d4856f3c8",
+  "resume_checkpoint": "E:\\横向项目-目标检测\\person_tracking\\runs\\train\\person_yolo11n_static_v13_hard_merged_20261108_r2\\weights\\resume_latest.pt",
+  "resume_checkpoint_sha256": "58b596b83685ef703b8076179942633ba009fa15a583638e0a2e4c8ba1708195",
+  "completed_at": "2026-11-08T13:01:45.877859",
+  "elapsed_seconds": 2420.8856785000007
+}

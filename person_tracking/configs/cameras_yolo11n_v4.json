@@ -1,0 +1,29 @@
+{
+  "project_root": "../..",
+  "model": "person_tracking/runs/train/person_yolo11n_static_v4_20261106_full80/weights/best.pt",
+  "image_size": 1280,
+  "device": "0",
+  "detection_conf": 0.10,
+  "nms_iou": 0.60,
+  "analysis_fps": 10.0,
+  "lost_buffer_seconds": 2.5,
+  "stability": {
+    "display_min_confidence": 0.2,
+    "display_keep_confidence": 0.15,
+    "confirm_hits": 3,
+    "box_smoothing_alpha": 0.4,
+    "prediction_box_seconds": 2.0
+  },
+  "tracker": "person_tracking/configs/botsort.yaml",
+  "cameras": [
+    {
+      "id": "D01",
+      "name": "右侧人员侦测",
+      "mount": "大车",
+      "source": "D01_20261020151140.mp4",
+      "recording_start": "2026-10-20T15:11:40",
+      "time_offset_s": 0,
+      "roi": []
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "project_root": "../..",
+  "model": "person_tracking/weights/yolo11n.pt",
+  "image_size": 1280,
+  "device": "auto",
+  "detection_conf": 0.10,
+  "nms_iou": 0.60,
+  "analysis_fps": 10.0,
+  "lost_buffer_seconds": 2.5,
+  "stability": {
+    "display_min_confidence": 0.2,
+    "display_keep_confidence": 0.15,
+    "confirm_hits": 3,
+    "box_smoothing_alpha": 0.4,
+    "prediction_box_seconds": 2.0
+  },
+  "tracker": "person_tracking/configs/botsort.yaml",
+  "cameras": [
+    {"id": "D01", "name": "右侧人员侦测", "mount": "大车", "source": "D01_20261020151140.mp4", "recording_start": "2026-10-20T15:11:40", "time_offset_s": 0, "roi": []},
+    {"id": "D02", "name": "副钩吊点", "mount": "小车", "source": "D02_20261020152133.mp4", "recording_start": "2026-10-20T15:21:33", "time_offset_s": 0, "roi": []},
+    {"id": "D03", "name": "左侧人员侦测", "mount": "大车", "source": "D03_20261020153209.mp4", "recording_start": "2026-10-20T15:32:09", "time_offset_s": 0, "roi": []},
+    {"id": "D04", "name": "主钩吊点", "mount": "小车", "source": "D04_20261020145546.mp4", "recording_start": "2026-10-20T14:55:46", "time_offset_s": 0, "roi": []}
+  ]
+}

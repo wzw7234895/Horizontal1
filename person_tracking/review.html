@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>现场人员标注复核</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:15px/1.5 system-ui,"Microsoft YaHei",sans-serif;background:#eef2f5;color:#17212b}
+header{background:#142b3b;color:white;padding:16px 24px}h1{font-size:22px;margin:0 0 6px}p{margin:4px 0}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px 20px;background:white;border-bottom:1px solid #ccd5db}
+button,select{font:inherit;border:1px solid #bdcad4;border-radius:5px;background:white;padding:7px 12px;cursor:pointer}button:hover{background:#e3f0fa}
+.primary{background:#106d85;color:white}.danger{color:#a42020}.workspace{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:12px;padding:16px}
+.image-area{background:#09141c;overflow:auto;max-height:76vh;min-height:250px}canvas{display:block;width:100%;height:auto;touch-action:none;cursor:crosshair}
+canvas.zoom{width:auto;max-width:none}aside{background:white;padding:14px;max-height:76vh;overflow:auto}.box{display:block;width:100%;margin:6px 0;text-align:left}.selected{border:2px solid #db7d13;background:#fff2d9}
+#message{padding:5px 20px;min-height:32px;white-space:pre-wrap}.error{color:#ab2424}#details{font-size:13px;word-break:break-all}small{color:#536575}
+@media(max-width:850px){.workspace{grid-template-columns:1fr}aside{max-height:240px}}
+</style>
+<header><h1>现场人员标注复核</h1><p>每人一个框，框住该人全部可见部分，不推测被遮挡的身体。可辨认的遮挡人员仍需标注；不能判断的孤立肢体请排除此帧。单击框或右侧列表选中，Delete 删除后可重画。</p></header>
+<div class="bar"><label>相机 <select id="camera"><option value="all">全部</option></select></label>
+<label>状态 <select id="filter"><option value="pending">待复核</option><option value="all">全部</option><option value="reviewed">已复核</option><option value="excluded">已排除</option></select></label>
+<label>集合 <select id="split"><option value="all">全部</option><option value="train">训练 train</option><option value="val">验证 val</option><option value="test">测试 test</option></select></label>
+<button id="prev">上一张 P</button><span id="position"></span><button id="next">下一张 N</button><button id="zoom">原尺寸 / 适应窗口</button><span id="progress"></span></div>
+<div class="bar"><button class="primary" id="save">保存当前标注 S</button><button id="negative">确认无人并保存</button><button class="danger" id="exclude">排除此帧</button>
+<button id="remove">删除选中框</button><button id="clear">清空所有框</button></div>
+<p id="dataset-notice" style="padding:0 20px"></p><div id="message"></div><div class="workspace"><div class="image-area"><canvas id="canvas"></canvas></div>
+<aside><div id="details"></div><p><small>检查整幅图像。不要把同一人的胳膊、腿或头部另标一个 person 框。只有确认整帧无人时才保存空标签；无法可靠标注的人员残片请排除此帧。</small></p><div id="boxes"></div></aside></div>
+<script>
+'use strict';
+const $=id=>document.getElementById(id),canvas=$('canvas'),ctx=canvas.getContext('2d');
+let all=[],filtered=[],position=0,current=null,boxes=[],selected=-1,image=new Image(),start=null,drag=null,dirty=false,loading=false,loadVersion=0;
+function message(text,error=false){$('message').textContent=text;$('message').className=error?'error':'';}
+async function api(url,options){const response=await fetch(url,options);const data=await response.json();if(!response.ok)throw Error(data.error||'请求失败');return data;}
+function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);if(image.complete&&image.naturalWidth)ctx.drawImage(image,0,0);ctx.lineWidth=Math.max(2,canvas.width/600);ctx.font=`${Math.max(18,canvas.width/70)}px sans-serif`;
+ boxes.forEach((b,i)=>{const [cx,cy,w,h]=b,x=(cx-w/2)*canvas.width,y=(cy-h/2)*canvas.height;ctx.strokeStyle=i===selected?'#ff7b00':'#35ff96';ctx.fillStyle=ctx.strokeStyle;ctx.strokeRect(x,y,w*canvas.width,h*canvas.height);ctx.fillText(String(i+1),x,Math.max(25,y-5));});
+ if(start&&drag){ctx.strokeStyle='#ffe458';ctx.strokeRect(start.x,start.y,drag.x-start.x,drag.y-start.y);}}
+function renderBoxes(){const parent=$('boxes');parent.replaceChildren();boxes.forEach((b,i)=>{const button=document.createElement('button');button.className='box'+(i===selected?' selected':'');button.textContent=`人员 ${i+1}  (${b.map(v=>v.toFixed(3)).join(', ')})`;button.onclick=()=>{selected=i;renderBoxes();draw();};parent.append(button);});}
+function point(e){const r=canvas.getBoundingClientRect();return{x:Math.max(0,Math.min(canvas.width,(e.clientX-r.left)*canvas.width/r.width)),y:Math.max(0,Math.min(canvas.height,(e.clientY-r.top)*canvas.height/r.height))};}
+canvas.onpointerdown=e=>{if(!current||loading||current.annotation_locked)return;canvas.setPointerCapture(e.pointerId);start=point(e);drag=null;};
+canvas.onpointermove=e=>{if(start){drag=point(e);draw();}};
+canvas.onpointerup=e=>{if(!start)return;const end=point(e),x1=Math.min(start.x,end.x),x2=Math.max(start.x,end.x),y1=Math.min(start.y,end.y),y2=Math.max(start.y,end.y);
+ if(x2-x1>=4&&y2-y1>=4){boxes.push([(x1+x2)/2/canvas.width,(y1+y2)/2/canvas.height,(x2-x1)/canvas.width,(y2-y1)/canvas.height]);selected=boxes.length-1;dirty=true;}
+ else{selected=-1;boxes.forEach((b,i)=>{if(end.x/canvas.width>=b[0]-b[2]/2&&end.x/canvas.width<=b[0]+b[2]/2&&end.y/canvas.height>=b[1]-b[3]/2&&end.y/canvas.height<=b[1]+b[3]/2)selected=i;});}
+ start=drag=null;renderBoxes();draw();};
+canvas.onpointercancel=()=>{start=drag=null;draw();};
+async function load(){const version=++loadVersion;if(!filtered.length){current=null;boxes=[];image=new Image();loading=false;ctx.clearRect(0,0,canvas.width,canvas.height);$('position').textContent='无匹配样本';$('details').textContent='请选择其他状态或相机';renderBoxes();return;}
+ loading=true;message('正在加载…');try{const item=await api('/api/item?index='+filtered[position].index);if(version!==loadVersion)return;const nextImage=new Image();
+ await new Promise((resolve,reject)=>{nextImage.onload=resolve;nextImage.onerror=()=>reject(Error('图片读取失败'));nextImage.src='/api/image?index='+item.index;});if(version!==loadVersion)return;
+ image=nextImage;current=item;boxes=item.boxes;selected=-1;dirty=false;canvas.width=item.width;canvas.height=item.height;draw();renderBoxes();
+ const locked=Boolean(item.annotation_locked);for(const id of ['save','negative','exclude','remove','clear'])$(id).disabled=locked;
+ $('position').textContent=`${position+1} / ${filtered.length}`;$('details').textContent=`${item.camera_id} | ${item.time} | ${item.split} | ${item.status}${locked?' | 标注已锁定':''}\n${item.id}${item.review_reason?'\n检查重点：'+item.review_reason:''}`;message(locked?'此样本标注已锁定，仅供查看。':'每人一个可见整体框；无法确认的肢体画面请排除此帧。');}finally{if(version===loadVersion)loading=false;}}
+function applyFilter(keep=true){const old=current?current.index:null;filtered=all.filter(x=>($('camera').value==='all'||x.camera_id===$('camera').value)&&($('filter').value==='all'||x.status===$('filter').value)&&($('split').value==='all'||x.split===$('split').value));const index=keep?filtered.findIndex(x=>x.index===old):-1;position=index>=0?index:Math.min(position,Math.max(0,filtered.length-1));return load();}
+async function reload(){const data=await api('/api/items');all=data.items;const chosen=$('camera').value;$('camera').replaceChildren(new Option('全部','all'));[...new Set(all.map(x=>x.camera_id))].forEach(c=>$('camera').add(new Option(c,c)));$('camera').value=chosen;
+ const s=data.status;$('progress').textContent=`总数 ${s.total} · 已复核 ${s.reviewed} · 待复核 ${s.pending} · 排除 ${s.excluded}`;
+ const pending=s.split_selection_status==='pending_reselection';$('dataset-notice').textContent=s.review_instructions||(pending?'原测试样本已解封，当前集合标签用于定位旧划分；修正后将重新选择训练、验证、测试集。':'');$('split').querySelector('option[value="test"]').textContent=pending?'原测试 test（待重选）':'测试 test';await applyFilter();}
+async function move(delta){if(loading)return;if(dirty&&!confirm('当前修改尚未保存，仍然切换图片？'))return;position=Math.max(0,Math.min(filtered.length-1,position+delta));await load();}
+async function save(kind){if(!current||loading||current.annotation_locked)return;if(kind==='reviewed'&&!boxes.length){message('保存空标签请使用“确认无人并保存”。',true);return;}
+ const payload={index:current.index,status:kind==='excluded'?'excluded':'reviewed',boxes:kind==='negative'?[]:boxes,confirm_empty:kind==='negative'};
+ await api('/api/review',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});dirty=false;await reload();message('已保存。待复核筛选下会自动显示下一张。');}
+function remove(){if(!loading&&!current?.annotation_locked&&selected>=0){boxes.splice(selected,1);selected=-1;dirty=true;renderBoxes();draw();}}
+function safely(fn){return()=>Promise.resolve().then(fn).catch(e=>message(e.message,true));}
+$('prev').onclick=safely(()=>move(-1));$('next').onclick=safely(()=>move(1));$('save').onclick=safely(()=>save('reviewed'));$('negative').onclick=safely(()=>save('negative'));$('exclude').onclick=safely(()=>save('excluded'));
+$('remove').onclick=remove;$('clear').onclick=()=>{if(loading)return;boxes=[];selected=-1;dirty=true;renderBoxes();draw();};$('zoom').onclick=()=>canvas.classList.toggle('zoom');
+for(const id of ['camera','filter','split'])$(id).onchange=safely(async()=>{if(dirty&&!confirm('当前修改尚未保存，仍然切换筛选？'))return;position=0;await applyFilter(false);});
+document.onkeydown=e=>{if(e.ctrlKey||e.metaKey||e.altKey||e.target.tagName==='SELECT')return;const key=e.key.toLowerCase();if(key==='delete'){remove();e.preventDefault();}if(key==='n')safely(()=>move(1))();if(key==='p')safely(()=>move(-1))();if(key==='s'){safely(()=>save('reviewed'))();e.preventDefault();}};
+window.onbeforeunload=e=>{if(dirty){e.preventDefault();e.returnValue='';}};
+const query=new URLSearchParams(location.search);for(const [id,param] of [['split','split'],['filter','status']]){const value=query.get(param);if([...$(id).options].some(o=>o.value===value))$(id).value=value;}
+safely(reload)();
+</script></html>

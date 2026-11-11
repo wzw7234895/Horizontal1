@@ -1,0 +1,4 @@
+opencv-python>=4.8,<5
+numpy>=1.24,<3
+pytest>=8,<10
+kornia>=0.8,<0.9

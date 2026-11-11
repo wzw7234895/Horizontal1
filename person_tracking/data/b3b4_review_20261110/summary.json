@@ -1,0 +1,45 @@
+{
+  "status": "completed",
+  "images": 296,
+  "reader_summaries": [
+    {
+      "camera_id": "D01",
+      "finish_reason": "eof_or_decode_failure",
+      "timestamp_fallback_frames": 0
+    },
+    {
+      "camera_id": "D02",
+      "finish_reason": "eof_or_decode_failure",
+      "timestamp_fallback_frames": 0
+    },
+    {
+      "camera_id": "D03",
+      "finish_reason": "eof_or_decode_failure",
+      "timestamp_fallback_frames": 0
+    },
+    {
+      "camera_id": "D04",
+      "finish_reason": "eof_or_decode_failure",
+      "timestamp_fallback_frames": 0
+    }
+  ],
+  "by_camera": {
+    "D01": 74,
+    "D02": 74,
+    "D03": 74,
+    "D04": 74
+  },
+  "by_split": {
+    "test": 52,
+    "val": 70,
+    "train": 174
+  },
+  "proposal_boxes": 182,
+  "no_proposal_images": 191,
+  "reviewed_images": 0,
+  "training_started": false,
+  "note": "Person boxes are machine proposals only. B3/B4 boxes and attributes require human review.",
+  "b3b4_samples": 296,
+  "b3b4_reviewed": 0,
+  "customer_policy_confirmed": false
+}

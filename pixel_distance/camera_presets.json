@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "expected_aspect_ratio": 1.7777777777777777,
+  "source": "Design ranges and unverified optics; only each two-camera mounting group is treated as rigid",
+  "all_cameras_rigid": false,
+  "b7_axes": {
+    "gantry_xy": [0.0, 1.0],
+    "trolley_xy": [1.0, 0.0]
+  },
+  "epipolar_candidate_threshold_px": 20.0,
+  "video_clock_offset_s": {
+    "D01": -0.2,
+    "D02": 4.8,
+    "D03": -3.0,
+    "D04": -4.0
+  },
+  "rig_origins_m": {
+    "gantry": [0.0, 0.0, 0.0],
+    "trolley": [0.0, 0.0, 0.0]
+  },
+  "nominal_world_poses": {
+    "D01": {"center_m": [-2.0, 1.28, 10.0], "azimuth_deg": -90.0},
+    "D02": {"center_m": [-2.0, 0.0, 10.0], "azimuth_deg": 180.0},
+    "D03": {"center_m": [8.0, 1.28, 10.0], "azimuth_deg": 90.0},
+    "D04": {"center_m": [0.0, 0.0, 10.0], "azimuth_deg": 0.0}
+  },
+  "cameras": {
+    "D01": {
+      "name": "右侧人员侦测",
+      "mount": "大车端梁",
+      "rig": "gantry",
+      "center_in_rig_m": [-5.0, 0.0, 10.0],
+      "height_m": 10.0,
+      "design_height_range_m": [8.0, 12.0],
+      "horizontal_fov_deg": 60.0,
+      "down_tilt_deg": 45.0,
+      "roll_deg": 0.0
+    },
+    "D02": {
+      "name": "副钩吊点",
+      "mount": "小车",
+      "rig": "trolley",
+      "center_in_rig_m": [-1.0, 0.0, 10.0],
+      "height_m": 10.0,
+      "design_height_range_m": [8.0, 12.0],
+      "horizontal_fov_deg": 80.0,
+      "down_tilt_deg": 85.0,
+      "roll_deg": 0.0
+    },
+    "D03": {
+      "name": "左侧人员侦测",
+      "mount": "大车端梁",
+      "rig": "gantry",
+      "center_in_rig_m": [5.0, 0.0, 10.0],
+      "height_m": 10.0,
+      "design_height_range_m": [8.0, 12.0],
+      "horizontal_fov_deg": 60.0,
+      "down_tilt_deg": 45.0,
+      "azimuth_deg": 90.0,
+      "roll_deg": 0.0
+    },
+    "D04": {
+      "name": "主钩吊点",
+      "mount": "小车",
+      "rig": "trolley",
+      "center_in_rig_m": [1.0, 0.0, 10.0],
+      "height_m": 10.0,
+      "design_height_range_m": [8.0, 12.0],
+      "horizontal_fov_deg": 80.0,
+      "down_tilt_deg": 85.0,
+      "azimuth_deg": 0.0,
+      "roll_deg": 0.0
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "description": "用户暂无新录像；仅用同日未见时段作遮挡专项开发验证。排除所有历史样本和推理时段，跨相机保护30秒。",
+  "clips": [
+    {"id": "D02_gap1629", "evaluation_group": "time1629", "camera_id": "D02", "start": "2026-10-20T16:29:15", "end": "2026-10-20T16:30:00"},
+    {"id": "D03_gap1629", "evaluation_group": "time1629", "camera_id": "D03", "start": "2026-10-20T16:29:15", "end": "2026-10-20T16:30:00"},
+    {"id": "D03_gap1639", "evaluation_group": "time1639", "camera_id": "D03", "start": "2026-10-20T16:39:15", "end": "2026-10-20T16:40:45"}
+  ]
+}

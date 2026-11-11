@@ -1,0 +1,24 @@
+{
+  "weights": null,
+  "candidate_label_colors": [
+    "blue",
+    "yellow",
+    "white",
+    "red",
+    "orange",
+    "green",
+    "black",
+    "gray",
+    "other"
+  ],
+  "allowed_helmet_colors": [],
+  "allowed_workwear_colors": [],
+  "confidence": 0.35,
+  "minimum_part_pixels": 12,
+  "image_size": 1280,
+  "device": null,
+  "confirm_frames": 3,
+  "confirm_window_seconds": 1.0,
+  "lost_buffer_seconds": 2.5,
+  "draw_annotations": true
+}

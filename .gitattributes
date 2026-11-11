@@ -1,0 +1,4 @@
+/person_tracking/data/person_reviewed_v13_hard_merged_20261108_r2/images/** filter=lfs diff=lfs merge=lfs -text
+/person_tracking/runs/train/person_yolo11n_static_v13_hard_merged_20261108_r2/weights/*.pt filter=lfs diff=lfs merge=lfs -text
+/person_tracking/runs/train/person_yolo11n_static_v12_occlusion_augmented_20261108/weights/best.pt filter=lfs diff=lfs merge=lfs -text
+* !text !filter !merge !diff

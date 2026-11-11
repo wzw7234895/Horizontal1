@@ -1,0 +1,574 @@
+{
+  "purpose": "training_only_candidates_no_training",
+  "event_grouping": "Conservative temporal operation clusters, shared across cameras; not independent tracked identities or new-date evidence.",
+  "windows": [
+    {
+      "window_id": "E01_D04_150253",
+      "event_group": "E01",
+      "camera_id": "D04",
+      "start": "15:02:53",
+      "end": "15:03:17",
+      "interval_s": 3,
+      "targets": [
+        "俯视",
+        "边缘截断"
+      ],
+      "evidence": "原候选15:03:01可见右下人员"
+    },
+    {
+      "window_id": "E02_D04_150620",
+      "event_group": "E02",
+      "camera_id": "D04",
+      "start": "15:06:20",
+      "end": "15:06:44",
+      "interval_s": 3,
+      "targets": [
+        "俯视",
+        "边缘截断"
+      ],
+      "evidence": "已有正帧附近，检查人员进入/离开"
+    },
+    {
+      "window_id": "E02_D04_150724",
+      "event_group": "E02",
+      "camera_id": "D04",
+      "start": "15:07:24",
+      "end": "15:07:46",
+      "interval_s": 3,
+      "targets": [
+        "俯视",
+        "边缘截断"
+      ],
+      "evidence": "原图15:07:36可见底部头肩出画"
+    },
+    {
+      "window_id": "E03_D01_152440",
+      "event_group": "E03",
+      "camera_id": "D01",
+      "start": "15:24:40",
+      "end": "15:25:10",
+      "interval_s": 3,
+      "targets": [
+        "斜俯视",
+        "边缘进出"
+      ],
+      "evidence": "灰衣人员通行；多相机保守合为一组"
+    },
+    {
+      "window_id": "E03_D02_152440",
+      "event_group": "E03",
+      "camera_id": "D02",
+      "start": "15:24:40",
+      "end": "15:25:10",
+      "interval_s": 3,
+      "targets": [
+        "俯视",
+        "边缘进出"
+      ],
+      "evidence": "灰衣人员通行；多相机保守合为一组"
+    },
+    {
+      "window_id": "E03_D04_152440",
+      "event_group": "E03",
+      "camera_id": "D04",
+      "start": "15:24:40",
+      "end": "15:25:10",
+      "interval_s": 3,
+      "targets": [
+        "俯视",
+        "边缘进出"
+      ],
+      "evidence": "灰衣人员通行；多相机保守合为一组"
+    },
+    {
+      "window_id": "E04_D01_152638",
+      "event_group": "E04",
+      "camera_id": "D01",
+      "start": "15:26:38",
+      "end": "15:27:12",
+      "interval_s": 3,
+      "targets": [
+        "斜俯视",
+        "边缘进出"
+      ],
+      "evidence": "蓝帽工装人员另一时段通行；跨相机合组"
+    },
+    {
+      "window_id": "E04_D02_152638",
+      "event_group": "E04",
+      "camera_id": "D02",
+      "start": "15:26:38",
+      "end": "15:27:12",
+      "interval_s": 3,
+      "targets": [
+        "俯视",
+        "边缘进出"
+      ],
+      "evidence": "蓝帽工装人员另一时段通行；跨相机合组"
+    },
+    {
+      "window_id": "E04_D04_152638",
+      "event_group": "E04",
+      "camera_id": "D04",
+      "start": "15:26:38",
+      "end": "15:27:12",
+      "interval_s": 3,
+      "targets": [
+        "俯视",
+        "边缘进出"
+      ],
+      "evidence": "蓝帽工装人员另一时段通行；跨相机合组"
+    },
+    {
+      "window_id": "E05_D01_153140",
+      "event_group": "E05",
+      "camera_id": "D01",
+      "start": "15:31:40",
+      "end": "15:32:12",
+      "interval_s": 3,
+      "targets": [
+        "边缘截断",
+        "斜俯视"
+      ],
+      "evidence": "原候选15:31:55便装人员"
+    },
+    {
+      "window_id": "E05_D02_153130",
+      "event_group": "E05",
+      "camera_id": "D02",
+      "start": "15:31:30",
+      "end": "15:32:02",
+      "interval_s": 3,
+      "targets": [
+        "俯视",
+        "结构局部遮挡"
+      ],
+      "evidence": "原候选15:31:43上方人员"
+    },
+    {
+      "window_id": "E05_D04_153148",
+      "event_group": "E05",
+      "camera_id": "D04",
+      "start": "15:31:48",
+      "end": "15:32:18",
+      "interval_s": 3,
+      "targets": [
+        "俯视",
+        "边缘截断"
+      ],
+      "evidence": "15:32:01左侧灰衣人员"
+    },
+    {
+      "window_id": "E05_D04_153324",
+      "event_group": "E05",
+      "camera_id": "D04",
+      "start": "15:33:24",
+      "end": "15:33:52",
+      "interval_s": 3,
+      "targets": [
+        "俯视",
+        "边缘截断"
+      ],
+      "evidence": "15:33:36右侧灰衣人员，保守归同一通行组"
+    },
+    {
+      "window_id": "E06_D01_153706",
+      "event_group": "E06",
+      "camera_id": "D01",
+      "start": "15:37:06",
+      "end": "15:37:34",
+      "interval_s": 3,
+      "targets": [
+        "边缘截断",
+        "结构局部遮挡",
+        "俯视"
+      ],
+      "evidence": "D01右下、D02中部人员，保守跨相机合组"
+    },
+    {
+      "window_id": "E06_D02_153706",
+      "event_group": "E06",
+      "camera_id": "D02",
+      "start": "15:37:06",
+      "end": "15:37:34",
+      "interval_s": 3,
+      "targets": [
+        "边缘截断",
+        "结构局部遮挡",
+        "俯视"
+      ],
+      "evidence": "D01右下、D02中部人员，保守跨相机合组"
+    },
+    {
+      "window_id": "E07_D01_154202",
+      "event_group": "E07",
+      "camera_id": "D01",
+      "start": "15:42:02",
+      "end": "15:42:28",
+      "interval_s": 3,
+      "targets": [
+        "边缘截断",
+        "结构遮挡"
+      ],
+      "evidence": "不同时间的靠边人员；连续工序可能相同，保守合组"
+    },
+    {
+      "window_id": "E07_D01_154436",
+      "event_group": "E07",
+      "camera_id": "D01",
+      "start": "15:44:36",
+      "end": "15:45:02",
+      "interval_s": 3,
+      "targets": [
+        "边缘截断",
+        "结构遮挡"
+      ],
+      "evidence": "不同时间的靠边人员；连续工序可能相同，保守合组"
+    },
+    {
+      "window_id": "E07_D01_154540",
+      "event_group": "E07",
+      "camera_id": "D01",
+      "start": "15:45:40",
+      "end": "15:46:08",
+      "interval_s": 3,
+      "targets": [
+        "边缘截断",
+        "结构遮挡"
+      ],
+      "evidence": "不同时间的靠边人员；连续工序可能相同，保守合组"
+    },
+    {
+      "window_id": "E07_D02_154200",
+      "event_group": "E07",
+      "camera_id": "D02",
+      "start": "15:42:00",
+      "end": "15:42:28",
+      "interval_s": 3,
+      "targets": [
+        "俯视",
+        "结构遮挡",
+        "边缘进出"
+      ],
+      "evidence": "上/下边缘通行人员，须全帧确认"
+    },
+    {
+      "window_id": "E07_D02_154436",
+      "event_group": "E07",
+      "camera_id": "D02",
+      "start": "15:44:36",
+      "end": "15:45:04",
+      "interval_s": 3,
+      "targets": [
+        "俯视",
+        "结构遮挡",
+        "边缘进出"
+      ],
+      "evidence": "上/下边缘通行人员，须全帧确认"
+    },
+    {
+      "window_id": "E07_D02_154556",
+      "event_group": "E07",
+      "camera_id": "D02",
+      "start": "15:45:56",
+      "end": "15:46:24",
+      "interval_s": 3,
+      "targets": [
+        "俯视",
+        "结构遮挡",
+        "边缘进出"
+      ],
+      "evidence": "上/下边缘通行人员，须全帧确认"
+    },
+    {
+      "window_id": "E07_D02_154742",
+      "event_group": "E07",
+      "camera_id": "D02",
+      "start": "15:47:42",
+      "end": "15:48:30",
+      "interval_s": 3,
+      "targets": [
+        "俯视",
+        "结构遮挡",
+        "边缘进出"
+      ],
+      "evidence": "上/下边缘通行人员，须全帧确认"
+    },
+    {
+      "window_id": "E07_D04_154148",
+      "event_group": "E07",
+      "camera_id": "D04",
+      "start": "15:41:48",
+      "end": "15:42:16",
+      "interval_s": 3,
+      "targets": [
+        "俯视",
+        "结构遮挡",
+        "边缘截断"
+      ],
+      "evidence": "15:43:06斜缆遮挡与下边截断；15:48:06竖梁遮挡"
+    },
+    {
+      "window_id": "E07_D04_154252",
+      "event_group": "E07",
+      "camera_id": "D04",
+      "start": "15:42:52",
+      "end": "15:43:22",
+      "interval_s": 3,
+      "targets": [
+        "俯视",
+        "结构遮挡",
+        "边缘截断"
+      ],
+      "evidence": "15:43:06斜缆遮挡与下边截断；15:48:06竖梁遮挡"
+    },
+    {
+      "window_id": "E07_D04_154418",
+      "event_group": "E07",
+      "camera_id": "D04",
+      "start": "15:44:18",
+      "end": "15:44:48",
+      "interval_s": 3,
+      "targets": [
+        "俯视",
+        "结构遮挡",
+        "边缘截断"
+      ],
+      "evidence": "15:43:06斜缆遮挡与下边截断；15:48:06竖梁遮挡"
+    },
+    {
+      "window_id": "E07_D04_154752",
+      "event_group": "E07",
+      "camera_id": "D04",
+      "start": "15:47:52",
+      "end": "15:48:22",
+      "interval_s": 3,
+      "targets": [
+        "俯视",
+        "结构遮挡",
+        "边缘截断"
+      ],
+      "evidence": "15:43:06斜缆遮挡与下边截断；15:48:06竖梁遮挡"
+    },
+    {
+      "window_id": "E07_D03_154144",
+      "event_group": "E07",
+      "camera_id": "D03",
+      "start": "15:41:44",
+      "end": "15:42:08",
+      "interval_s": 3,
+      "targets": [
+        "结构遮挡",
+        "远处小目标"
+      ],
+      "evidence": "远处工装人员，防止把钩体误认人员"
+    },
+    {
+      "window_id": "E07_D03_154806",
+      "event_group": "E07",
+      "camera_id": "D03",
+      "start": "15:48:06",
+      "end": "15:48:34",
+      "interval_s": 3,
+      "targets": [
+        "结构遮挡",
+        "远处小目标"
+      ],
+      "evidence": "远处工装人员，防止把钩体误认人员"
+    },
+    {
+      "window_id": "E08_D02_155142",
+      "event_group": "E08",
+      "camera_id": "D02",
+      "start": "15:51:42",
+      "end": "15:52:12",
+      "interval_s": 5,
+      "targets": [
+        "俯视",
+        "工件或吊具遮挡",
+        "人员交叠"
+      ],
+      "evidence": "同一吊装工序多阶段，不重复算独立事件"
+    },
+    {
+      "window_id": "E08_D02_155340",
+      "event_group": "E08",
+      "camera_id": "D02",
+      "start": "15:53:40",
+      "end": "15:54:12",
+      "interval_s": 5,
+      "targets": [
+        "俯视",
+        "工件或吊具遮挡",
+        "人员交叠"
+      ],
+      "evidence": "同一吊装工序多阶段，不重复算独立事件"
+    },
+    {
+      "window_id": "E08_D02_155526",
+      "event_group": "E08",
+      "camera_id": "D02",
+      "start": "15:55:26",
+      "end": "15:56:30",
+      "interval_s": 5,
+      "targets": [
+        "俯视",
+        "工件或吊具遮挡",
+        "人员交叠"
+      ],
+      "evidence": "同一吊装工序多阶段，不重复算独立事件"
+    },
+    {
+      "window_id": "E08_D02_155700",
+      "event_group": "E08",
+      "camera_id": "D02",
+      "start": "15:57:00",
+      "end": "15:57:30",
+      "interval_s": 5,
+      "targets": [
+        "俯视",
+        "工件或吊具遮挡",
+        "人员交叠"
+      ],
+      "evidence": "同一吊装工序多阶段，不重复算独立事件"
+    },
+    {
+      "window_id": "E08_D02_155802",
+      "event_group": "E08",
+      "camera_id": "D02",
+      "start": "15:58:02",
+      "end": "15:58:32",
+      "interval_s": 5,
+      "targets": [
+        "俯视",
+        "工件或吊具遮挡",
+        "人员交叠"
+      ],
+      "evidence": "同一吊装工序多阶段，不重复算独立事件"
+    },
+    {
+      "window_id": "E08_D03_155142",
+      "event_group": "E08",
+      "camera_id": "D03",
+      "start": "15:51:42",
+      "end": "15:52:12",
+      "interval_s": 5,
+      "targets": [
+        "结构遮挡",
+        "工件或吊具遮挡",
+        "人员交叠"
+      ],
+      "evidence": "工件附近多人员与吊装过程；跨相机统一E08"
+    },
+    {
+      "window_id": "E08_D03_155312",
+      "event_group": "E08",
+      "camera_id": "D03",
+      "start": "15:53:12",
+      "end": "15:54:38",
+      "interval_s": 5,
+      "targets": [
+        "结构遮挡",
+        "工件或吊具遮挡",
+        "人员交叠"
+      ],
+      "evidence": "工件附近多人员与吊装过程；跨相机统一E08"
+    },
+    {
+      "window_id": "E08_D03_155508",
+      "event_group": "E08",
+      "camera_id": "D03",
+      "start": "15:55:08",
+      "end": "15:56:12",
+      "interval_s": 5,
+      "targets": [
+        "结构遮挡",
+        "工件或吊具遮挡",
+        "人员交叠"
+      ],
+      "evidence": "工件附近多人员与吊装过程；跨相机统一E08"
+    },
+    {
+      "window_id": "E08_D03_155712",
+      "event_group": "E08",
+      "camera_id": "D03",
+      "start": "15:57:12",
+      "end": "15:58:38",
+      "interval_s": 5,
+      "targets": [
+        "结构遮挡",
+        "工件或吊具遮挡",
+        "人员交叠"
+      ],
+      "evidence": "工件附近多人员与吊装过程；跨相机统一E08"
+    },
+    {
+      "window_id": "E08_D04_155550",
+      "event_group": "E08",
+      "camera_id": "D04",
+      "start": "15:55:50",
+      "end": "15:56:22",
+      "interval_s": 3,
+      "targets": [
+        "俯视",
+        "工件或吊具遮挡",
+        "边缘截断"
+      ],
+      "evidence": "15:56:06工件旁伸手操作人员，可能被吊具/工件挡住"
+    },
+    {
+      "window_id": "E08_D04_155748",
+      "event_group": "E08",
+      "camera_id": "D04",
+      "start": "15:57:48",
+      "end": "15:58:20",
+      "interval_s": 3,
+      "targets": [
+        "俯视",
+        "工件或吊具遮挡",
+        "边缘截断"
+      ],
+      "evidence": "15:56:06工件旁伸手操作人员，可能被吊具/工件挡住"
+    },
+    {
+      "window_id": "E09_D01_161101",
+      "event_group": "E09",
+      "camera_id": "D01",
+      "start": "16:11:01",
+      "end": "16:11:25",
+      "interval_s": 3,
+      "targets": [
+        "边缘截断",
+        "结构遮挡"
+      ],
+      "evidence": "已有靠边正帧附近的新画面，事件身份暂保守合并"
+    },
+    {
+      "window_id": "E09_D01_161222",
+      "event_group": "E09",
+      "camera_id": "D01",
+      "start": "16:12:22",
+      "end": "16:12:54",
+      "interval_s": 3,
+      "targets": [
+        "边缘截断",
+        "结构遮挡"
+      ],
+      "evidence": "已有靠边正帧附近的新画面，事件身份暂保守合并"
+    },
+    {
+      "window_id": "E03_D02_152232",
+      "event_group": "E03",
+      "camera_id": "D02",
+      "start": "15:22:32",
+      "end": "15:22:56",
+      "interval_s": 3,
+      "targets": [
+        "边缘截断",
+        "俯视",
+        "结构局部遮挡"
+      ],
+      "evidence": "原图15:22:43右边工作台旁灰衣工人被画面边界截断；不单独算新的独立作业"
+    }
+  ]
+}

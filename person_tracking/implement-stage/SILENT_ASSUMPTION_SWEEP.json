@@ -1,0 +1,9 @@
+{
+  "status": "SWEEP_UNAVAILABLE",
+  "reason": "The skill's independent cross-model reviewer tool is not connected in this session. No reviewer was invoked and no independent verdict is claimed.",
+  "assurance": "draft",
+  "undeclared": null,
+  "stale_rows": null,
+  "semantic_undeclared": null,
+  "verdict": null
+}

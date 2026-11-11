@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>B3/B4 专项标注</title>
+  <style>
+    :root { color-scheme: light; font-family: "Segoe UI", "Microsoft YaHei", sans-serif; color: #18232d; background: #eef2f4; }
+    * { box-sizing: border-box; }
+    body { margin: 0; height: 100vh; display: grid; grid-template-columns: 300px minmax(0, 1fr); overflow: hidden; }
+    aside { display: flex; min-height: 0; flex-direction: column; background: #fff; border-right: 1px solid #cbd4da; }
+    .side-head { padding: 16px; border-bottom: 1px solid #dce3e7; }
+    h1 { margin: 0 0 10px; font-size: 18px; font-weight: 650; }
+    #progress { color: #53626d; font-size: 13px; }
+    .filters { display: flex; gap: 8px; margin-top: 12px; }
+    select, button { min-height: 36px; border: 1px solid #aebbc4; border-radius: 4px; background: #fff; color: inherit; font: inherit; }
+    select { padding: 0 8px; }
+    button { padding: 0 11px; cursor: pointer; }
+    button:hover { background: #edf3f6; }
+    button:disabled { opacity: .45; cursor: default; }
+    #samples { overflow: auto; min-height: 0; }
+    .sample { width: 100%; display: grid; grid-template-columns: 54px 1fr auto; gap: 8px; align-items: center; padding: 10px 12px; border: 0; border-bottom: 1px solid #e5eaed; border-radius: 0; text-align: left; }
+    .sample.active { background: #e8f3f2; box-shadow: inset 3px 0 #14877c; }
+    .sample small { color: #5c6a73; }
+    .pill { padding: 2px 6px; border-radius: 10px; background: #e7ecef; font-size: 11px; }
+    .pill.reviewed { background: #d8eee7; color: #135f51; }
+    .pill.excluded { background: #f5e5d8; color: #805229; }
+    main { min-width: 0; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
+    body.list-collapsed { grid-template-columns: 0 minmax(0, 1fr); }
+    body.list-collapsed aside { visibility: hidden; width: 0; min-width: 0; overflow: hidden; border: 0; }
+    header, footer { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 10px 14px; background: #fff; border-bottom: 1px solid #cbd4da; }
+    footer { border-top: 1px solid #cbd4da; border-bottom: 0; }
+    #meta { margin-right: auto; color: #53626d; font-size: 13px; }
+    #canvas-wrap { min-height: 0; display: grid; place-items: center; padding: 12px; overflow: auto; }
+    #canvas-wrap.overflowing { place-items: start; }
+    canvas { display: block; background: #111; box-shadow: 0 1px 4px #26333b40; touch-action: none; }
+    .tool { display: flex; align-items: center; gap: 7px; font-size: 13px; }
+    .tool select { max-width: min(420px, 54vw); }
+    .zoom-controls { display: flex; align-items: center; gap: 4px; }
+    .zoom-controls button { min-width: 36px; padding: 0 8px; }
+    #zoom-fit { min-width: 64px; }
+    #zoom-level { min-width: 44px; color: #53626d; text-align: center; font-size: 12px; }
+    .hint { color: #53626d; font-size: 12px; flex: 1 1 250px; }
+    .spacer { flex: 1; }
+    .check { display: flex; align-items: center; gap: 8px; margin-right: auto; font-size: 13px; }
+    .check input { width: 18px; height: 18px; accent-color: #14877c; }
+    #message { min-width: 100px; color: #53626d; font-size: 12px; }
+    @media (max-width: 850px) {
+      body { grid-template-columns: 220px minmax(0, 1fr); }
+      .side-head { padding: 10px; }
+      header, footer { padding: 8px; gap: 6px; }
+      #canvas-wrap { padding: 5px; }
+      .sample { grid-template-columns: 42px 1fr; }
+      .sample .pill { display: none; }
+      .check { flex-basis: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <aside>
+    <div class="side-head">
+      <h1>B3/B4 专项标注</h1>
+      <div id="progress">正在读取数据…</div>
+      <div class="filters">
+        <select id="camera-filter" aria-label="相机筛选"><option value="all">全部相机</option></select>
+        <select id="status-filter" aria-label="状态筛选">
+          <option value="all">全部状态</option><option value="pending">待标注</option>
+          <option value="reviewed">已确认</option><option value="excluded">已排除</option>
+        </select>
+      </div>
+    </div>
+    <div id="samples"></div>
+  </aside>
+  <main>
+    <header>
+      <button id="toggle-list" title="显示或隐藏样本列表" aria-label="显示或隐藏样本列表">列表</button>
+      <div id="meta">选择一张图像</div>
+      <div class="zoom-controls" aria-label="画面缩放">
+        <button id="zoom-out" title="缩小画面" aria-label="缩小画面">−</button>
+        <button id="zoom-fit" title="适合窗口" aria-label="适合窗口">适合</button>
+        <button id="zoom-in" title="放大画面" aria-label="放大画面">+</button>
+        <span id="zoom-level">100%</span>
+      </div>
+      <label class="tool">标注类别 <select id="class-select"></select></label>
+      <span class="hint">躯干框只圈可辨色的胸背工装；无法辨色时不要猜色。</span>
+      <button id="delete-box" title="删除选中的框">删除框</button>
+    </header>
+    <div id="canvas-wrap"><canvas id="image"></canvas></div>
+    <footer>
+      <button id="previous">上一张</button><button id="next">下一张</button>
+      <label class="check"><input id="complete" type="checkbox">我已检查此帧所有可见的头部/安全帽和躯干目标</label>
+      <span id="message"></span>
+      <button id="exclude">排除此帧</button><button id="save">保存已确认</button>
+    </footer>
+  </main>
+  <script>
+    const state = { items: [], item: null, index: -1, image: null, boxes: [], selected: -1, drawing: null, taxonomy: null, fitScale: 1, zoom: 1 };
+    const colors = { blue: "蓝色", yellow: "黄色", white: "白色", red: "红色", orange: "橙色", green: "绿色", black: "黑色", gray: "灰色", other: "其他可辨色" };
+    const $ = (id) => document.getElementById(id);
+    const canvas = $("image"), ctx = canvas.getContext("2d");
+    function labelFor(name) {
+      if (name === "head_no_helmet") return "头部未佩戴安全帽";
+      const [part, color] = name.split("_");
+      const cn = colors[color] || color;
+      return part === "helmet" ? `已佩戴安全帽 · ${cn}` : `可见躯干工装 · ${cn}`;
+    }
+    async function request(url, options) {
+      const response = await fetch(url, options);
+      const body = response.headers.get("content-type")?.includes("json") ? await response.json() : await response.blob();
+      if (!response.ok) throw new Error(body.error || response.statusText);
+      return body;
+    }
+    async function initialize() {
+      if (window.matchMedia("(max-width: 720px)").matches) document.body.classList.add("list-collapsed");
+      const data = await request("/api/items");
+      state.items = data.items;
+      $("progress").textContent = `待标注 ${data.status.pending} · 已确认 ${data.status.reviewed} · 已排除 ${data.status.excluded}`;
+      const cameras = [...new Set(state.items.map(item => item.camera_id))];
+      for (const camera of cameras) $("camera-filter").add(new Option(camera, camera));
+      await openItem(state.items.findIndex(item => item.status === "pending"));
+      renderList();
+    }
+    function filteredItems() {
+      return state.items.map((item, index) => ({ ...item, index })).filter(item =>
+        ($("camera-filter").value === "all" || item.camera_id === $("camera-filter").value) &&
+        ($("status-filter").value === "all" || item.status === $("status-filter").value));
+    }
+    function renderList() {
+      const root = $("samples"); root.replaceChildren();
+      for (const item of filteredItems()) {
+        const button = document.createElement("button");
+        button.className = `sample${item.index === state.index ? " active" : ""}`;
+        button.innerHTML = `<strong>${item.camera_id}</strong><span><small>${item.time.slice(11,19)} · ${item.split} · 候选 ${item.proposal_count}</small></span><span class="pill ${item.status}">${item.status === "pending" ? "待标注" : item.status === "reviewed" ? "已确认" : "已排除"}</span>`;
+        button.addEventListener("click", () => openItem(item.index));
+        root.append(button);
+      }
+    }
+    async function openItem(index) {
+      if (index < 0 || index >= state.items.length) return;
+      const item = await request(`/api/item?index=${index}`);
+      const blob = await request(`/api/image?index=${index}`);
+      const image = new Image(); image.src = URL.createObjectURL(blob);
+      await image.decode();
+      state.item = item; state.index = index; state.image = image;
+      state.boxes = structuredClone(item.annotation.boxes || []); state.selected = -1;
+      state.zoom = 1;
+      state.taxonomy = item.taxonomy;
+      const selector = $("class-select"); selector.replaceChildren();
+      for (const name of item.taxonomy.classes) selector.add(new Option(labelFor(name), name));
+      $("complete").checked = item.annotation.frame_complete === true;
+      $("meta").textContent = `${item.camera_id} · ${item.recording_time_estimate} · ${item.width}×${item.height} · 分组 ${item.split}`;
+      canvas.width = image.naturalWidth; canvas.height = image.naturalHeight;
+      $("message").textContent = "";
+      applyCanvasSize(); draw(); renderList();
+    }
+    function applyCanvasSize() {
+      if (!state.image) return;
+      const wrap = $("canvas-wrap");
+      state.fitScale = Math.max(0.01, Math.min((wrap.clientWidth - 30) / state.image.naturalWidth,
+                                               (wrap.clientHeight - 30) / state.image.naturalHeight, 1));
+      const scale = state.fitScale * state.zoom;
+      const width = state.image.naturalWidth * scale, height = state.image.naturalHeight * scale;
+      canvas.style.width = `${Math.max(1, width)}px`;
+      canvas.style.height = `${Math.max(1, height)}px`;
+      wrap.classList.toggle("overflowing", width > wrap.clientWidth - 24 || height > wrap.clientHeight - 24);
+      $("zoom-level").textContent = `${Math.round(state.zoom * 100)}%`;
+    }
+    function strokeColor(name) {
+      if (name === "head_no_helmet") return "#ff514c";
+      return name.startsWith("helmet_") ? "#f5d547" : "#26d7a0";
+    }
+    function draw() {
+      if (!state.image) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(state.image, 0, 0);
+      for (const box of state.item.proposals_xyxy || []) {
+        ctx.setLineDash([9, 7]); ctx.lineWidth = Math.max(2, canvas.width / 900);
+        ctx.strokeStyle = "#fff44d"; ctx.strokeRect(box[0], box[1], box[2]-box[0], box[3]-box[1]);
+      }
+      ctx.setLineDash([]);
+      state.boxes.forEach((box, index) => {
+        const [x1,y1,x2,y2] = box.xyxy;
+        ctx.lineWidth = Math.max(index === state.selected ? 4 : 2, canvas.width / 900);
+        ctx.strokeStyle = strokeColor(box.class_name); ctx.strokeRect(x1,y1,x2-x1,y2-y1);
+        ctx.font = `${Math.max(14, canvas.width / 90)}px Segoe UI`;
+        const text = labelFor(box.class_name), metrics = ctx.measureText(text);
+        ctx.fillStyle = strokeColor(box.class_name); ctx.fillRect(x1, Math.max(0,y1-26), metrics.width+10, 24);
+        ctx.fillStyle = "#17232a"; ctx.fillText(text, x1+5, Math.max(17,y1-8));
+      });
+      if (state.drawing) {
+        ctx.setLineDash([6,4]); ctx.strokeStyle = "#fff"; ctx.lineWidth = Math.max(2, canvas.width / 900);
+        const [x1,y1,x2,y2] = state.drawing; ctx.strokeRect(x1,y1,x2-x1,y2-y1); ctx.setLineDash([]);
+      }
+    }
+    function imagePoint(event) {
+      const rect = canvas.getBoundingClientRect();
+      return [(event.clientX-rect.left)*canvas.width/rect.width, (event.clientY-rect.top)*canvas.height/rect.height];
+    }
+    canvas.addEventListener("pointerdown", event => { if (!state.image) return; canvas.setPointerCapture(event.pointerId); const [x,y]=imagePoint(event); state.drawing=[x,y,x,y]; draw(); });
+    canvas.addEventListener("pointermove", event => { if (!state.drawing) return; const [x,y]=imagePoint(event); state.drawing[2]=x; state.drawing[3]=y; draw(); });
+    canvas.addEventListener("pointerup", () => {
+      if (!state.drawing) return;
+      const [x1,y1,x2,y2]=state.drawing; state.drawing=null;
+      if (Math.abs(x2-x1)>=4 && Math.abs(y2-y1)>=4) {
+        state.boxes.push({class_name:$("class-select").value,xyxy:[Math.min(x1,x2),Math.min(y1,y2),Math.max(x1,x2),Math.max(y1,y2)]});
+        state.selected=state.boxes.length-1;
+      }
+      draw();
+    });
+    canvas.addEventListener("click", event => {
+      if (state.drawing) return;
+      const [x,y]=imagePoint(event);
+      state.selected=-1;
+      for (let i=state.boxes.length-1;i>=0;i--) { const [x1,y1,x2,y2]=state.boxes[i].xyxy; if (x>=x1&&x<=x2&&y>=y1&&y<=y2) { state.selected=i; break; } }
+      if (state.selected >= 0) $("class-select").value = state.boxes[state.selected].class_name;
+      draw();
+    });
+    $("class-select").addEventListener("change", () => {
+      if (state.selected < 0) return;
+      state.boxes[state.selected].class_name = $("class-select").value;
+      draw();
+    });
+    $("delete-box").addEventListener("click", () => { if(state.selected<0)return; state.boxes.splice(state.selected,1); state.selected=-1; draw(); });
+    async function save(status) {
+      if (!state.item) return;
+      try {
+        const result = await request("/api/save", {method:"POST",headers:{"Content-Type":"application/json"},
+          body:JSON.stringify({index:state.index,status,frame_complete:$("complete").checked,boxes:state.boxes})});
+        state.items[state.index].status=result.saved.status;
+        $("progress").textContent=`待标注 ${result.status.pending} · 已确认 ${result.status.reviewed} · 已排除 ${result.status.excluded}`;
+        $("message").textContent="已保存"; renderList();
+      } catch (error) {
+        const messages = {
+          "Confirm the whole frame is reviewed, or exclude it": "请先勾选“我已检查此帧所有可见目标”再保存；无法复核的图像请排除此帧。",
+          "Boxes must have positive area and stay inside the image": "标注框必须有面积且完全位于图像内，请调整框后重试。"
+        };
+        $("message").textContent = messages[error.message] || error.message;
+      }
+    }
+    $("save").addEventListener("click", () => save("reviewed"));
+    $("exclude").addEventListener("click", () => save("excluded"));
+    $("previous").addEventListener("click", () => openItem(state.index-1));
+    $("next").addEventListener("click", () => openItem(state.index+1));
+    $("camera-filter").addEventListener("change", renderList);
+    $("status-filter").addEventListener("change", renderList);
+    $("toggle-list").addEventListener("click", () => document.body.classList.toggle("list-collapsed"));
+    $("zoom-in").addEventListener("click", () => { state.zoom = Math.min(4, state.zoom * 1.25); applyCanvasSize(); });
+    $("zoom-out").addEventListener("click", () => { state.zoom = Math.max(0.5, state.zoom / 1.25); applyCanvasSize(); });
+    $("zoom-fit").addEventListener("click", () => { state.zoom = 1; applyCanvasSize(); });
+    $("samples").addEventListener("wheel", event => event.stopPropagation(), {passive:true});
+    window.addEventListener("resize", () => {
+      document.body.classList.toggle("list-collapsed", window.matchMedia("(max-width: 720px)").matches);
+      if (state.item) applyCanvasSize();
+    });
+    initialize().catch(error => { $("progress").textContent=error.message; });
+  </script>
+</body>
+</html>

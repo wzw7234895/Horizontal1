@@ -1,0 +1,6 @@
+path: 'E:/横向项目-目标检测/person_tracking/data/person_reviewed_v13_hard_merged_20261108_r2'
+train: images/train
+val: images/val
+test: images/test
+names:
+- person

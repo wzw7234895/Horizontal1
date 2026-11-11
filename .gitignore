@@ -1,0 +1,30 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.idea/
+pixel_distance/demo_output/
+pixel_distance/model-cache/
+pixel_distance/*.egg-info/
+
+# Local model weights and recorded media are not source code.
+*.pt
+*.pth
+*.onnx
+*.safetensors
+*.mp4
+*.avi
+*.mkv
+
+# The v13 training archive explicitly tracks its LFS model checkpoints.
+!person_tracking/runs/train/person_yolo11n_static_v13_hard_merged_20261108_r2/weights/*.pt
+!person_tracking/runs/train/person_yolo11n_static_v12_occlusion_augmented_20261108/weights/best.pt
+
+# Person-detection runtime material is kept out of the repository archive.
+person_tracking/.cache/
+person_tracking/evaluation/
+person_tracking/runs/inference/
+person_tracking/runs/audits/
+
+# Combined video diagnostics and local hook resources are generated locally.
+hook_detection/runs/
+hook_detection/.cache/

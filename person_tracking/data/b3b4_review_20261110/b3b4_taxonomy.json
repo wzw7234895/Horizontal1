@@ -1,0 +1,171 @@
+{
+  "schema_version": "1.0",
+  "classes": [
+    "head_no_helmet",
+    "helmet_blue",
+    "helmet_yellow",
+    "helmet_white",
+    "helmet_red",
+    "helmet_orange",
+    "helmet_green",
+    "helmet_black",
+    "helmet_gray",
+    "helmet_other",
+    "torso_blue",
+    "torso_yellow",
+    "torso_white",
+    "torso_red",
+    "torso_orange",
+    "torso_green",
+    "torso_black",
+    "torso_gray",
+    "torso_other"
+  ],
+  "labels": [
+    {
+      "name": "head_no_helmet",
+      "capability": "B3",
+      "part": "head",
+      "meaning": "visible head without a safety helmet"
+    },
+    {
+      "name": "helmet_blue",
+      "capability": "B3",
+      "part": "helmet",
+      "color": "blue",
+      "meaning": "worn safety helmet color"
+    },
+    {
+      "name": "helmet_yellow",
+      "capability": "B3",
+      "part": "helmet",
+      "color": "yellow",
+      "meaning": "worn safety helmet color"
+    },
+    {
+      "name": "helmet_white",
+      "capability": "B3",
+      "part": "helmet",
+      "color": "white",
+      "meaning": "worn safety helmet color"
+    },
+    {
+      "name": "helmet_red",
+      "capability": "B3",
+      "part": "helmet",
+      "color": "red",
+      "meaning": "worn safety helmet color"
+    },
+    {
+      "name": "helmet_orange",
+      "capability": "B3",
+      "part": "helmet",
+      "color": "orange",
+      "meaning": "worn safety helmet color"
+    },
+    {
+      "name": "helmet_green",
+      "capability": "B3",
+      "part": "helmet",
+      "color": "green",
+      "meaning": "worn safety helmet color"
+    },
+    {
+      "name": "helmet_black",
+      "capability": "B3",
+      "part": "helmet",
+      "color": "black",
+      "meaning": "worn safety helmet color"
+    },
+    {
+      "name": "helmet_gray",
+      "capability": "B3",
+      "part": "helmet",
+      "color": "gray",
+      "meaning": "worn safety helmet color"
+    },
+    {
+      "name": "helmet_other",
+      "capability": "B3",
+      "part": "helmet",
+      "color": "other",
+      "meaning": "worn safety helmet color"
+    },
+    {
+      "name": "torso_blue",
+      "capability": "B4",
+      "part": "torso",
+      "color": "blue",
+      "meaning": "visible workwear torso color"
+    },
+    {
+      "name": "torso_yellow",
+      "capability": "B4",
+      "part": "torso",
+      "color": "yellow",
+      "meaning": "visible workwear torso color"
+    },
+    {
+      "name": "torso_white",
+      "capability": "B4",
+      "part": "torso",
+      "color": "white",
+      "meaning": "visible workwear torso color"
+    },
+    {
+      "name": "torso_red",
+      "capability": "B4",
+      "part": "torso",
+      "color": "red",
+      "meaning": "visible workwear torso color"
+    },
+    {
+      "name": "torso_orange",
+      "capability": "B4",
+      "part": "torso",
+      "color": "orange",
+      "meaning": "visible workwear torso color"
+    },
+    {
+      "name": "torso_green",
+      "capability": "B4",
+      "part": "torso",
+      "color": "green",
+      "meaning": "visible workwear torso color"
+    },
+    {
+      "name": "torso_black",
+      "capability": "B4",
+      "part": "torso",
+      "color": "black",
+      "meaning": "visible workwear torso color"
+    },
+    {
+      "name": "torso_gray",
+      "capability": "B4",
+      "part": "torso",
+      "color": "gray",
+      "meaning": "visible workwear torso color"
+    },
+    {
+      "name": "torso_other",
+      "capability": "B4",
+      "part": "torso",
+      "color": "other",
+      "meaning": "visible workwear torso color"
+    }
+  ],
+  "candidate_colors": [
+    "blue",
+    "yellow",
+    "white",
+    "red",
+    "orange",
+    "green",
+    "black",
+    "gray",
+    "other"
+  ],
+  "customer_policy_confirmed": false,
+  "policy_file": "E:\\横向项目-目标检测\\Horizontal1\\person_tracking\\configs\\b3b4_attributes.json"
+}

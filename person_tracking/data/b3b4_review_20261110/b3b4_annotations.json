@@ -1,0 +1,1970 @@
+{
+  "D01_20261020T151140_f000000000": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:52:28",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T151225_f000001123": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [
+      {
+        "class_name": "helmet_blue",
+        "xyxy": [
+          738.82,
+          783.36,
+          804.05,
+          831.76
+        ]
+      },
+      {
+        "class_name": "torso_gray",
+        "xyxy": [
+          715.67,
+          824.39,
+          783.01,
+          943.28
+        ]
+      }
+    ],
+    "reviewed_at": "2026-11-10T18:56:14",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T151310_f000002245": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [
+      {
+        "class_name": "helmet_blue",
+        "xyxy": [
+          906.11,
+          507.69,
+          949.25,
+          541.36
+        ]
+      },
+      {
+        "class_name": "torso_gray",
+        "xyxy": [
+          885.07,
+          555.04,
+          967.13,
+          625.53
+        ]
+      }
+    ],
+    "reviewed_at": "2026-11-10T18:56:37",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T151355_f000003368": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:56:42",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T151440_f000004490": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:56:45",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T151525_f000005613": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:56:48",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T151610_f000006735": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:56:50",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T151655_f000007858": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:56:53",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T151740_f000008980": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:57:10",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T151825_f000010103": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:57:13",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T152125_f000014593": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:57:27",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T152210_f000015715": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:57:31",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T152255_f000016838": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:57:34",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T152340_f000017960": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:57:40",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T152425_f000019083": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:57:43",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T152510_f000020205": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:57:47",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T152555_f000021328": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:57:50",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T152640_f000022450": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:57:53",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T152725_f000023573": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:57:57",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T152810_f000024695": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:58:02",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T152855_f000025818": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:58:07",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T153110_f000029185": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:58:13",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T153155_f000030308": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [
+      {
+        "class_name": "head_no_helmet",
+        "xyxy": [
+          1124.96,
+          111.03,
+          1169.15,
+          155.22
+        ]
+      },
+      {
+        "class_name": "torso_gray",
+        "xyxy": [
+          1104.96,
+          136.28,
+          1169.15,
+          215.2
+        ]
+      }
+    ],
+    "reviewed_at": "2026-11-10T18:59:23",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T153240_f000031430": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:59:27",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T153325_f000032553": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:59:30",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T153410_f000033675": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:59:33",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T153455_f000034798": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:59:35",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T153540_f000035920": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:59:37",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T153625_f000037043": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:59:40",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T153710_f000038165": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:59:43",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T153755_f000039288": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:59:48",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T153840_f000040410": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:59:50",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T154140_f000044900": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:59:55",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T154225_f000046022": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T18:59:58",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T154310_f000047145": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [
+      {
+        "class_name": "head_no_helmet",
+        "xyxy": [
+          1214.39,
+          0.56,
+          1250.16,
+          41.59
+        ]
+      },
+      {
+        "class_name": "torso_gray",
+        "xyxy": [
+          1173.35,
+          33.17,
+          1249.11,
+          114.19
+        ]
+      }
+    ],
+    "reviewed_at": "2026-11-10T19:00:49",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T154355_f000048267": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:00:54",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T154440_f000049390": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:01:02",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T154525_f000050512": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:01:04",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T154610_f000051635": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:01:08",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T154655_f000052757": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:01:11",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T154740_f000053880": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:01:15",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T154825_f000055002": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:01:19",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T155125_f000059492": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:01:22",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T155210_f000060615": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:01:25",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T155255_f000061737": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:04:03",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T155340_f000062860": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:04:07",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T155425_f000063982": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:04:09",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T155510_f000065105": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:04:13",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T155555_f000066227": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:04:17",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T155640_f000067350": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:04:19",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T155725_f000068472": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:04:22",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T155810_f000069595": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [
+      {
+        "class_name": "head_no_helmet",
+        "xyxy": [
+          629.4,
+          12.13,
+          664.12,
+          50.01
+        ]
+      },
+      {
+        "class_name": "torso_gray",
+        "xyxy": [
+          608.35,
+          50.01,
+          683.05,
+          126.82
+        ]
+      },
+      {
+        "class_name": "helmet_blue",
+        "xyxy": [
+          524.18,
+          583.45,
+          576.79,
+          632.9
+        ]
+      },
+      {
+        "class_name": "torso_gray",
+        "xyxy": [
+          506.29,
+          627.64,
+          589.41,
+          729.7
+        ]
+      }
+    ],
+    "reviewed_at": "2026-11-10T19:05:06",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T155855_f000070717": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:07:13",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T160110_f000074085": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:07:18",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T160155_f000075207": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [
+      {
+        "class_name": "helmet_blue",
+        "xyxy": [
+          327.43,
+          355.13,
+          366.36,
+          398.27
+        ]
+      },
+      {
+        "class_name": "torso_gray",
+        "xyxy": [
+          295.87,
+          399.32,
+          388.45,
+          492.96
+        ]
+      }
+    ],
+    "reviewed_at": "2026-11-10T19:07:38",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T160240_f000076330": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [
+      {
+        "class_name": "torso_gray",
+        "xyxy": [
+          970.29,
+          17.39,
+          1025.0,
+          94.2
+        ]
+      }
+    ],
+    "reviewed_at": "2026-11-10T19:08:06",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T160325_f000077452": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [
+      {
+        "class_name": "torso_gray",
+        "xyxy": [
+          968.19,
+          19.5,
+          1023.95,
+          87.89
+        ]
+      }
+    ],
+    "reviewed_at": "2026-11-10T19:09:19",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T160410_f000078575": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:09:22",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T160455_f000079697": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:09:27",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T160540_f000080820": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:09:34",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T160625_f000081942": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:09:36",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T160710_f000083065": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:09:40",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T160755_f000084187": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [
+      {
+        "class_name": "head_no_helmet",
+        "xyxy": [
+          795.63,
+          511.9,
+          839.82,
+          569.77
+        ]
+      },
+      {
+        "class_name": "head_no_helmet",
+        "xyxy": [
+          889.27,
+          535.05,
+          931.36,
+          571.87
+        ]
+      },
+      {
+        "class_name": "torso_gray",
+        "xyxy": [
+          761.97,
+          551.88,
+          853.5,
+          635.0
+        ]
+      },
+      {
+        "class_name": "torso_gray",
+        "xyxy": [
+          872.44,
+          571.87,
+          953.46,
+          660.26
+        ]
+      }
+    ],
+    "reviewed_at": "2026-11-10T19:10:12",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T160840_f000085310": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:10:15",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T161140_f000089799": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:10:18",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T161225_f000090922": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:10:20",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T161310_f000092044": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:10:22",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T161355_f000093167": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:10:26",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T161440_f000094289": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:10:28",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T161525_f000095412": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:10:30",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T161610_f000096534": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:10:33",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T161655_f000097657": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:10:35",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T161740_f000098779": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:10:38",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D01_20261020T161825_f000099902": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:10:41",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D02_20261020T152133_f000000000": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:10:45",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D02_20261020T152218_f000001126": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [
+      {
+        "class_name": "torso_gray",
+        "xyxy": [
+          1889.02,
+          496.15,
+          1916.67,
+          531.7
+        ]
+      }
+    ],
+    "reviewed_at": "2026-11-10T19:11:04",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D02_20261020T152303_f000002251": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [
+      {
+        "class_name": "torso_gray",
+        "xyxy": [
+          1887.76,
+          617.12,
+          1918.27,
+          657.1
+        ]
+      }
+    ],
+    "reviewed_at": "2026-11-10T19:11:24",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D02_20261020T152348_f000003376": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [
+      {
+        "class_name": "torso_gray",
+        "xyxy": [
+          1886.71,
+          618.17,
+          1914.06,
+          678.14
+        ]
+      }
+    ],
+    "reviewed_at": "2026-11-10T19:11:34",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D02_20261020T152433_f000004501": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [
+      {
+        "class_name": "torso_gray",
+        "xyxy": [
+          1878.29,
+          612.91,
+          1918.27,
+          676.04
+        ]
+      }
+    ],
+    "reviewed_at": "2026-11-10T19:11:43",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D02_20261020T152518_f000005626": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:11:46",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D02_20261020T152603_f000006751": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [
+      {
+        "class_name": "torso_gray",
+        "xyxy": [
+          1885.66,
+          643.42,
+          1907.75,
+          686.56
+        ]
+      }
+    ],
+    "reviewed_at": "2026-11-10T19:12:07",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D02_20261020T152648_f000007876": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [
+      {
+        "class_name": "torso_gray",
+        "xyxy": [
+          1883.55,
+          641.32,
+          1907.75,
+          694.98
+        ]
+      }
+    ],
+    "reviewed_at": "2026-11-10T19:12:17",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D02_20261020T152733_f000009001": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [
+      {
+        "class_name": "torso_gray",
+        "xyxy": [
+          1889.86,
+          639.21,
+          1906.7,
+          690.77
+        ]
+      }
+    ],
+    "reviewed_at": "2026-11-10T19:12:27",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D02_20261020T152818_f000010126": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:12:32",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D02_20261020T153118_f000014627": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [
+      {
+        "class_name": "torso_gray",
+        "xyxy": [
+          1878.29,
+          624.48,
+          1909.86,
+          666.57
+        ]
+      }
+    ],
+    "reviewed_at": "2026-11-10T19:12:41",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D02_20261020T153203_f000015752": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [
+      {
+        "class_name": "torso_gray",
+        "xyxy": [
+          1578.43,
+          189.94,
+          1619.46,
+          245.71
+        ]
+      },
+      {
+        "class_name": "torso_gray",
+        "xyxy": [
+          1883.55,
+          535.05,
+          1913.01,
+          592.92
+        ]
+      }
+    ],
+    "reviewed_at": "2026-11-10T19:13:00",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D02_20261020T153248_f000016877": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:13:04",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D02_20261020T153333_f000018002": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:13:08",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D02_20261020T153418_f000019127": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:13:12",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D02_20261020T153503_f000020252": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:13:15",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D02_20261020T153548_f000021377": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:13:18",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D02_20261020T153633_f000022502": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:13:21",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D02_20261020T153718_f000023627": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:13:24",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D02_20261020T153803_f000024753": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:13:27",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D02_20261020T153848_f000025878": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:13:33",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D02_20261020T154103_f000029253": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:13:36",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D02_20261020T154148_f000030378": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:13:39",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D02_20261020T154233_f000031503": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:13:42",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D02_20261020T154318_f000032628": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:13:51",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D02_20261020T154403_f000033753": {
+    "status": "reviewed",
+    "frame_complete": true,
+    "boxes": [],
+    "reviewed_at": "2026-11-10T19:13:54",
+    "review_source": "b3b4_local_review_interface"
+  },
+  "D02_20261020T154448_f000034878": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T154533_f000036004": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T154618_f000037129": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T154703_f000038254": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T154748_f000039379": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T154833_f000040504": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T155133_f000045004": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T155218_f000046129": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T155303_f000047254": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T155348_f000048380": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T155433_f000049505": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T155518_f000050630": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T155603_f000051755": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T155648_f000052880": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T155733_f000054005": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T155818_f000055130": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T160118_f000059630": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T160203_f000060756": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T160248_f000061881": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T160333_f000063006": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T160418_f000064131": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T160503_f000065256": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T160548_f000066381": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T160633_f000067506": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T160718_f000068631": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T160803_f000069756": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T160848_f000070881": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T161103_f000074257": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T161148_f000075382": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T161233_f000076507": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T161318_f000077632": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T161403_f000078757": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T161448_f000079882": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T161533_f000081007": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T161618_f000082132": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T161703_f000083257": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T161748_f000084383": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T161833_f000085508": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T162133_f000090008": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T162218_f000091133": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T162303_f000092258": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T162348_f000093383": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T162433_f000094508": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T162518_f000095633": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T162603_f000096759": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T162648_f000097884": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T162733_f000099009": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D02_20261020T162818_f000100134": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T153209_f000000000": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T153254_f000001123": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T153339_f000002245": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T153424_f000003368": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T153509_f000004490": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T153554_f000005613": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T153639_f000006735": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T153724_f000007858": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T153809_f000008980": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T153854_f000010103": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T154109_f000013470": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T154154_f000014593": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T154239_f000015715": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T154324_f000016838": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T154409_f000017960": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T154454_f000019083": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T154539_f000020205": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T154624_f000021328": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T154709_f000022450": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T154754_f000023572": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T154839_f000024695": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T155139_f000029185": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T155224_f000030307": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T155309_f000031430": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T155354_f000032552": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T155439_f000033675": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T155524_f000034797": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T155609_f000035920": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T155654_f000037042": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T155739_f000038165": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T155824_f000039287": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T160124_f000043777": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T160209_f000044900": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T160254_f000046022": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T160339_f000047144": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T160424_f000048267": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T160509_f000049389": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T160554_f000050512": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T160639_f000051634": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T160724_f000052757": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T160809_f000053879": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T160854_f000055002": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T161109_f000058369": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T161154_f000059492": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T161239_f000060614": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T161324_f000061737": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T161409_f000062859": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T161454_f000063982": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T161539_f000065104": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T161624_f000066227": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T161709_f000067349": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T161754_f000068472": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T161839_f000069594": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T162139_f000074084": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T162224_f000075206": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T162309_f000076329": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T162354_f000077451": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T162439_f000078574": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T162524_f000079696": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T162609_f000080819": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T162654_f000081941": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T162739_f000083064": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T162824_f000084186": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T163124_f000088676": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T163209_f000089799": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T163254_f000090921": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T163339_f000092044": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T163424_f000093166": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T163509_f000094289": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T163554_f000095411": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T163639_f000096533": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T163724_f000097656": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T163809_f000098778": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D03_20261020T163854_f000099901": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T145546_f000000000": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T145631_f000001123": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T145716_f000002245": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T145801_f000003368": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T145846_f000004490": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T150101_f000007858": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T150146_f000008980": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T150231_f000010103": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T150316_f000011225": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T150401_f000012348": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T150446_f000013470": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T150531_f000014593": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T150616_f000015715": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T150701_f000016838": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T150746_f000017960": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T150831_f000019083": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T151131_f000023572": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T151216_f000024695": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T151301_f000025817": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T151346_f000026940": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T151431_f000028062": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T151516_f000029185": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T151601_f000030307": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T151646_f000031430": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T151731_f000032552": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T151816_f000033675": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T152116_f000038165": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T152201_f000039287": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T152246_f000040410": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T152331_f000041532": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T152416_f000042654": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T152501_f000043777": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T152546_f000044899": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T152631_f000046022": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T152716_f000047144": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T152801_f000048267": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T152846_f000049389": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T153101_f000052757": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T153146_f000053879": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T153231_f000055002": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T153316_f000056124": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T153401_f000057247": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T153446_f000058369": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T153531_f000059492": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T153616_f000060614": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T153701_f000061737": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T153746_f000062859": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T153831_f000063981": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T154131_f000068471": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T154216_f000069594": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T154301_f000070716": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T154346_f000071839": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T154431_f000072961": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T154516_f000074084": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T154601_f000075206": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T154646_f000076329": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T154731_f000077451": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T154816_f000078574": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T155116_f000083064": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T155201_f000084186": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T155246_f000085308": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T155331_f000086431": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T155416_f000087553": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T155501_f000088676": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T155546_f000089798": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T155631_f000090921": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T155716_f000092043": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T155801_f000093166": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T155846_f000094288": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T160101_f000097656": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T160146_f000098778": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T160231_f000099901": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T160316_f000101023": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  },
+  "D04_20261020T160401_f000102146": {
+    "status": "pending",
+    "frame_complete": false,
+    "boxes": []
+  }
+}

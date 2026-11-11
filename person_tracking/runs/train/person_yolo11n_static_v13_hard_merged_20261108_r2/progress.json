@@ -1,0 +1,20 @@
+{
+  "epoch_completed": 24,
+  "max_epochs": 80,
+  "updated_at": "2026-11-08T13:01:41.482844",
+  "elapsed_seconds": 2416.4906581000014,
+  "validation_metrics": {
+    "metrics/precision(B)": 0.92251,
+    "metrics/recall(B)": 0.99259,
+    "metrics/mAP50(B)": 0.98885,
+    "metrics/mAP50-95(B)": 0.5639,
+    "val/box_loss": 0.6615,
+    "val/cls_loss": 0.28351,
+    "val/dfl_loss": 0.51874
+  },
+  "fitness": 0.5639,
+  "best_fitness": 0.61665,
+  "best_epoch": 9,
+  "resume_checkpoint": "E:\\横向项目-目标检测\\person_tracking\\runs\\train\\person_yolo11n_static_v13_hard_merged_20261108_r2\\weights\\resume_latest.pt",
+  "test_split_evaluated": false
+}

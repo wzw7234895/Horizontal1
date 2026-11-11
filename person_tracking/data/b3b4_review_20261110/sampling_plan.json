@@ -1,0 +1,106 @@
+{
+  "interval_s": 45.0,
+  "group_seconds": 600,
+  "decode_mode": "sequential",
+  "guard_seconds": 60,
+  "seed": 42,
+  "model": "E:\\横向项目-目标检测\\Horizontal1\\person_tracking\\runs\\train\\person_yolo11n_static_v13_hard_merged_20261108_r2\\weights\\best.pt",
+  "video_metadata": [
+    {
+      "camera_id": "D01",
+      "fps": 25.0,
+      "frame_count": 103312,
+      "width": 1920,
+      "height": 1080,
+      "duration_s": 4132.48,
+      "duration_basis": "estimated_frame_count_divided_by_nominal_fps"
+    },
+    {
+      "camera_id": "D02",
+      "fps": 25.0,
+      "frame_count": 103009,
+      "width": 1920,
+      "height": 1080,
+      "duration_s": 4120.36,
+      "duration_basis": "estimated_frame_count_divided_by_nominal_fps"
+    },
+    {
+      "camera_id": "D03",
+      "fps": 25.0,
+      "frame_count": 103361,
+      "width": 1920,
+      "height": 1080,
+      "duration_s": 4134.44,
+      "duration_basis": "estimated_frame_count_divided_by_nominal_fps"
+    },
+    {
+      "camera_id": "D04",
+      "fps": 25.0,
+      "frame_count": 103462,
+      "width": 1920,
+      "height": 1080,
+      "duration_s": 4138.48,
+      "duration_basis": "estimated_frame_count_divided_by_nominal_fps"
+    }
+  ],
+  "selections": [
+    {
+      "camera_id": "D01",
+      "start_s": 0.0,
+      "duration_s": null
+    },
+    {
+      "camera_id": "D02",
+      "start_s": 0.0,
+      "duration_s": null
+    },
+    {
+      "camera_id": "D03",
+      "start_s": 0.0,
+      "duration_s": null
+    },
+    {
+      "camera_id": "D04",
+      "start_s": 0.0,
+      "duration_s": null
+    }
+  ],
+  "time_basis": "filename_plus_video_pts_with_explicit_fps_fallback",
+  "group_splits": {
+    "2026-10-20T16:00:00": "val",
+    "2026-10-20T15:20:00": "val",
+    "2026-10-20T15:10:00": "test",
+    "2026-10-20T16:10:00": "test",
+    "2026-10-20T15:40:00": "train",
+    "2026-10-20T15:50:00": "train",
+    "2026-10-20T16:20:00": "train",
+    "2026-10-20T15:30:00": "train",
+    "2026-10-20T14:50:00": "train",
+    "2026-10-20T15:00:00": "train",
+    "2026-10-20T16:30:00": "train"
+  },
+  "skipped_by_guard": 72,
+  "sampled_images": 296,
+  "reader_summaries": [
+    {
+      "camera_id": "D01",
+      "finish_reason": "eof_or_decode_failure",
+      "timestamp_fallback_frames": 0
+    },
+    {
+      "camera_id": "D02",
+      "finish_reason": "eof_or_decode_failure",
+      "timestamp_fallback_frames": 0
+    },
+    {
+      "camera_id": "D03",
+      "finish_reason": "eof_or_decode_failure",
+      "timestamp_fallback_frames": 0
+    },
+    {
+      "camera_id": "D04",
+      "finish_reason": "eof_or_decode_failure",
+      "timestamp_fallback_frames": 0
+    }
+  ]
+}

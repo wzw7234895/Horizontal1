@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>人员遮挡专项标注</title>
+<style>
+:root{font-family:system-ui,"Microsoft YaHei",sans-serif;color:#1e293b;background:#eef2f6;font-size:14px;line-height:1.5}*{box-sizing:border-box}body{margin:0}header{padding:16px 22px;background:#163047;color:#fff}h1{margin:0 0 5px;font-size:22px}p{margin:5px 0}header p{max-width:1180px;color:#dce9f3}button,select,textarea,input{font:inherit}button,select{border:1px solid #bfccd7;border-radius:6px;background:#fff;color:#233749;padding:7px 11px}button{cursor:pointer}button:hover:enabled{background:#edf6ff}button:disabled,select:disabled,textarea:disabled{opacity:.5;cursor:default}.primary{background:#086987;color:#fff;border-color:#086987}.primary:hover:enabled{background:#07566e}.danger{color:#a31b2d}.bar{display:flex;flex-wrap:wrap;align-items:center;gap:9px;padding:10px 20px;border-bottom:1px solid #d5dee6;background:#fff}.bar label{display:flex;align-items:center;gap:5px}#progress{margin-left:auto;color:#465970}.notice{margin:12px 20px 0;padding:10px 13px;background:#fff8e7;border:1px solid #e8d49b;border-radius:7px}.notice p{margin:3px 0}.workspace{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:12px;padding:12px 20px 20px;align-items:start}.viewer{min-width:0}.image-area{background:#0e1b27;overflow:auto;max-height:72vh;min-height:260px;border:1px solid #c7d2dd;border-radius:7px}canvas{display:block;width:100%;height:auto;touch-action:none;cursor:crosshair}canvas.actual{width:auto;max-width:none}.legend{display:flex;flex-wrap:wrap;gap:15px;padding:7px 3px;font-size:12px;color:#526578}.legend span:before{content:"";display:inline-block;width:11px;height:11px;border:2px solid var(--key);margin-right:5px;vertical-align:-1px}aside{background:#fff;border:1px solid #d5dee6;border-radius:7px;padding:13px;max-height:82vh;overflow:auto}h2{font-size:15px;margin:13px 0 6px}h2:first-child{margin-top:0}#details{font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere;color:#526578}#message{margin:0 20px;padding:7px 2px;min-height:35px;white-space:pre-wrap;color:#21516d}#message.error{color:#ad1f30}#objects{max-height:210px;overflow:auto}.object-item{display:block;width:100%;text-align:left;margin:5px 0;font-size:13px;padding:7px 9px}.object-item.selected{border:2px solid #d97706;background:#fff7e5}.object-item.incomplete{border-left:4px solid #dc3545}.subtle{color:#607286;font-size:12px}.field{display:block;margin:10px 0}.field>span{display:block;font-weight:600;margin-bottom:4px}.field select{width:100%}.checks{display:grid;grid-template-columns:1fr 1fr;gap:6px 8px}.checks label,.check-line{display:flex;align-items:center;gap:5px}input[type=checkbox]{width:16px;height:16px;accent-color:#086987}.property-panel{padding:10px 11px;border:1px solid #dbe4ec;background:#f7fafc;border-radius:6px}textarea{width:100%;min-height:65px;padding:7px;border:1px solid #bfccd7;border-radius:5px;resize:vertical}#selection-empty{padding:10px 0}#size-hint{margin:8px 0;font-size:12px;color:#3d5671}.mode-active{background:#e0f0fa;border-color:#2d7aab}.kbd{font-size:12px;color:#64748b}#negative-note{color:#955217;font-size:12px;min-height:18px}#dirty{font-weight:600;color:#aa4f08}.spacer{flex:1}
+@media(max-width:1050px){.workspace{grid-template-columns:minmax(0,1fr) 290px}}@media(max-width:760px){.workspace{grid-template-columns:1fr;padding:10px}.bar{padding:9px 10px}.notice{margin:10px 10px 0}aside{max-height:none}.image-area{max-height:65vh}#progress{margin-left:0;width:100%}#message{margin:0 10px}}
+</style>
+</head>
+<body>
+<header>
+  <h1>人员遮挡专项标注</h1>
+  <p>每人只框全部可见部分，不猜测被遮挡的身体。遮挡人员只要能明确辨认，仍需标注。每个框分别填写遮挡比例、遮挡物和远近。</p>
+  <p>本页面不提供模型建议框。完全遮挡、当前帧看不见的人员不作为当前帧检测 Recall 真值；无法确认的孤立肢体可画忽略区域。</p>
+</header>
+<div class="bar">
+  <label>相机 <select id="camera"><option value="all">全部</option></select></label>
+  <label>状态 <select id="filter"><option value="pending">待标注</option><option value="all">全部</option><option value="reviewed">已标注</option><option value="excluded">已排除</option></select></label>
+  <button id="prev">上一张 ←</button><span id="position">正在读取</span><button id="next">下一张 →</button>
+  <button id="zoom" aria-pressed="false">查看原尺寸</button>
+  <span id="progress"></span>
+</div>
+<div class="bar">
+  <button id="person-mode" class="mode-active" aria-pressed="true">画人员框</button>
+  <button id="ignore-mode" aria-pressed="false">画忽略区域</button>
+  <button id="undo">撤销 Ctrl+Z</button>
+  <button id="remove" class="danger">删除选中框</button>
+  <span class="spacer"></span><span id="dirty"></span>
+  <button id="save" class="primary">保存标注 S</button>
+  <button id="negative">确认无人并保存</button>
+  <button id="exclude" class="danger">排除此帧</button>
+</div>
+<div class="notice">
+  <p id="scope">正在读取样本来源和验证范围…</p>
+  <p>遮挡比例是“被遮住的人体投影面积 / 估计完整人体投影面积”的人工估计，只选择档位，不需推测完整身体框。画面边缘截断另行勾选，不计入遮挡比例。</p>
+  <p id="negative-note"></p>
+</div>
+<div id="message" role="status" aria-live="polite"></div>
+<main class="workspace">
+  <section class="viewer">
+    <div class="image-area" id="image-area"><canvas id="canvas" aria-label="拖动绘制人员框或忽略区域"></canvas></div>
+    <div class="legend"><span style="--key:#48ef9f">人员</span><span style="--key:#ffb13b">当前选中</span><span style="--key:#64baff">忽略区域（不计人员真值）</span></div>
+    <p class="kbd">拖动画框；点击框或右侧列表选中；Delete 删除；Ctrl+Z 撤销。原尺寸模式可滚动检查小目标。保存前请检查整幅画面。</p>
+  </section>
+  <aside>
+    <h2>当前画面</h2><div id="details">正在读取…</div>
+    <h2>人员与忽略区域</h2><div id="objects"></div>
+    <div id="selection-empty" class="subtle">选中一个人员框后，在下方填写属性。</div>
+    <div id="properties" class="property-panel" hidden>
+      <strong id="selection-title"></strong>
+      <div id="person-properties">
+        <label class="field"><span>遮挡比例（必选）</span><select id="occlusion">
+          <option value="">请选择</option><option value="none">0%：无遮挡</option><option value="light">(0, 25%]：轻度</option><option value="moderate">(25%, 50%]：中度</option><option value="heavy">(50%, 75%]：重度</option><option value="extreme">(75%, 100%)：极重度</option><option value="unknown">无法估计比例</option>
+        </select></label>
+        <div class="field"><span>遮挡物（可多选）</span><div class="checks" id="occluders">
+          <label><input type="checkbox" value="load">吊物 / 吊运工件</label><label><input type="checkbox" value="structure">结构 / 设备</label><label><input type="checkbox" value="person">其他人员</label><label><input type="checkbox" value="other">其他</label><label><input type="checkbox" value="unknown">无法判断</label>
+        </div><p class="subtle">无遮挡时无需勾选；其余档位至少选择一项。吊物和结构可同时勾选。</p></div>
+        <label class="field"><span>人员远近（必选）</span><select id="distance"><option value="">请选择</option><option value="near">非远处人员</option><option value="far">远处人员</option><option value="unknown">无法判断远近</option></select></label>
+        <label class="check-line"><input type="checkbox" id="truncated">人员被画面边缘截断</label>
+        <div id="size-hint"></div>
+        <p class="subtle">小框可能由遮挡造成，不一定代表远处。远近请结合现场透视关系判断；拿不准时选“无法判断远近”。</p>
+      </div>
+      <div id="ignore-properties" hidden><p class="subtle">仅圈无法确认的局部区域，例如孤立肢体。不要用忽略区域遮住能明确辨认的人员，以免漏记真值。</p></div>
+    </div>
+    <h2>备注 / 排除原因</h2>
+    <textarea id="reason" placeholder="排除此帧时必须填写原因，例如无法解码、整帧严重模糊。其他情况可留空。"></textarea>
+    <p class="subtle">“排除此帧”会把整张图移出评估。能局部标注时优先保留清楚的人员，并对无法确认区域使用忽略框。</p>
+  </aside>
+</main>
+<script>
+'use strict';
+const $=id=>document.getElementById(id),canvas=$('canvas'),ctx=canvas.getContext('2d');
+const occlusionNames={none:'无遮挡',light:'轻度',moderate:'中度',heavy:'重度',extreme:'极重度',unknown:'比例未知'};
+const distanceNames={near:'非远处',far:'远处',unknown:'远近未知'};
+let all=[],filtered=[],position=0,current=null,objects=[],ignoreRegions=[],selected=null,image=new Image();
+let protocol={},drawMode='person',start=null,drag=null,dirty=false,loading=false,saving=false,loadVersion=0,history=[];
+const clone=value=>JSON.parse(JSON.stringify(value));
+function message(text,error=false){$('message').textContent=text;$('message').className=error?'error':'';}
+function readOnly(){return Boolean(current?.annotation_locked||protocol.frozen);}
+function editable(){return Boolean(current)&&!loading&&!saving&&!readOnly();}
+function touch(){dirty=true;$('dirty').textContent='有未保存修改';}
+function remember(){history.push({objects:clone(objects),ignoreRegions:clone(ignoreRegions),selected:clone(selected),reason:$('reason').value});}
+function isComplete(object){return Object.hasOwn(occlusionNames,object.occlusion)&&Object.hasOwn(distanceNames,object.distance)&&(object.occlusion==='none'||object.occluders?.length>0);}
+async function api(url,options){const response=await fetch(url,options);const data=await response.json();if(!response.ok)throw Error(data.error||'请求失败');return data;}
+function selectedObject(){return selected?.kind==='person'?objects[selected.index]:null;}
+function selectedBox(){return selected?.kind==='person'?objects[selected.index]?.box:selected?.kind==='ignore'?ignoreRegions[selected.index]:null;}
+function updateControls(){const disabled=!editable();for(const id of ['save','negative','exclude','remove','undo','person-mode','ignore-mode'])$(id).disabled=disabled;for(const id of ['camera','filter','prev','next'])$(id).disabled=loading||saving;$('reason').disabled=disabled;$('remove').disabled=disabled||!selected;$('undo').disabled=disabled||!history.length;
+ $('negative').textContent=ignoreRegions.length?'无可确认人员 + 忽略区域并保存':'确认无人并保存';
+ $('negative-note').textContent=ignoreRegions.length?'本帧已有忽略区域：无人员框时只能确认“没有可确认人员”；该帧不等于整幅图像无人。':'只有确认整幅图像无人员时，才使用“确认无人并保存”；存在清楚的人员需先画框。';
+}
+function drawBox(box,color,label,isSelected,isIgnore){const[cx,cy,w,h]=box,x=(cx-w/2)*canvas.width,y=(cy-h/2)*canvas.height;ctx.strokeStyle=isSelected?'#ffb13b':color;ctx.fillStyle=ctx.strokeStyle;ctx.setLineDash(isIgnore?[12,7]:[]);ctx.strokeRect(x,y,w*canvas.width,h*canvas.height);ctx.setLineDash([]);ctx.fillText(label,Math.max(2,x),Math.max(24,y-5));}
+function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);if(image.complete&&image.naturalWidth)ctx.drawImage(image,0,0);ctx.lineWidth=Math.max(2,canvas.width/650);ctx.font=`${Math.max(18,canvas.width/75)}px sans-serif`;objects.forEach((o,i)=>drawBox(o.box,'#48ef9f',`人 ${i+1}${isComplete(o)?'':' · 待填属性'}`,selected?.kind==='person'&&selected.index===i,false));ignoreRegions.forEach((b,i)=>drawBox(b,'#64baff',`忽略 ${i+1}`,selected?.kind==='ignore'&&selected.index===i,true));if(start&&drag){ctx.strokeStyle=drawMode==='person'?'#48ef9f':'#64baff';ctx.setLineDash([10,5]);ctx.strokeRect(start.x,start.y,drag.x-start.x,drag.y-start.y);ctx.setLineDash([]);}}
+function renderProperties(){const box=selectedBox(),object=selectedObject();$('properties').hidden=!box;$('selection-empty').hidden=Boolean(box);if(!box)return;const person=selected.kind==='person';$('person-properties').hidden=!person;$('ignore-properties').hidden=person;$('selection-title').textContent=`${person?'人员':'忽略区域'} ${selected.index+1}`;if(!person)return;
+ $('occlusion').value=object.occlusion||'';$('distance').value=object.distance||'';$('truncated').checked=Boolean(object.truncated);$('occlusion').disabled=!editable();$('distance').disabled=!editable();$('truncated').disabled=!editable();document.querySelectorAll('#occluders input').forEach(input=>{input.checked=object.occluders?.includes(input.value)||false;input.disabled=!editable()||object.occlusion==='none';});const h=box[3]*current.height,h720=box[3]*720,small=h720<64;$('size-hint').textContent=`可见框高 ${h.toFixed(1)} px；折算 720p 为 ${h720.toFixed(1)} px（${small?'小于':'不小于'} 64 px）。${small?'仅表示可见图像尺寸小。':''}`;}
+function renderList(){const parent=$('objects');parent.replaceChildren();if(!objects.length&&!ignoreRegions.length){const p=document.createElement('p');p.className='subtle';p.textContent='尚无框。请检查整幅图像后绘制或确认无人。';parent.append(p);}function add(kind,index,label,incomplete){const button=document.createElement('button');button.className='object-item'+(selected?.kind===kind&&selected.index===index?' selected':'')+(incomplete?' incomplete':'');button.textContent=label;button.onclick=()=>{if(loading||saving)return;selected={kind,index};render();};parent.append(button);}objects.forEach((o,i)=>add('person',i,`人员 ${i+1} · ${occlusionNames[o.occlusion]||'遮挡待填'} · ${distanceNames[o.distance]||'远近待填'}${o.truncated?' · 截断':''}`,!isComplete(o)));ignoreRegions.forEach((_,i)=>add('ignore',i,`忽略区域 ${i+1}`,false));}
+function render(){renderList();renderProperties();updateControls();draw();}
+function point(event){const rect=canvas.getBoundingClientRect();return{x:Math.max(0,Math.min(canvas.width,(event.clientX-rect.left)*canvas.width/rect.width)),y:Math.max(0,Math.min(canvas.height,(event.clientY-rect.top)*canvas.height/rect.height))};}
+function contains(box,p){return p.x/canvas.width>=box[0]-box[2]/2&&p.x/canvas.width<=box[0]+box[2]/2&&p.y/canvas.height>=box[1]-box[3]/2&&p.y/canvas.height<=box[1]+box[3]/2;}
+canvas.onpointerdown=event=>{if(!editable()||event.button!==0)return;canvas.setPointerCapture(event.pointerId);start=point(event);drag=null;};
+canvas.onpointermove=event=>{if(start){drag=point(event);draw();}};
+canvas.onpointerup=event=>{if(!start)return;const end=point(event),x1=Math.min(start.x,end.x),x2=Math.max(start.x,end.x),y1=Math.min(start.y,end.y),y2=Math.max(start.y,end.y);if(x2-x1>=3&&y2-y1>=3){remember();const box=[(x1+x2)/(2*canvas.width),(y1+y2)/(2*canvas.height),(x2-x1)/canvas.width,(y2-y1)/canvas.height];if(drawMode==='person'){objects.push({box,occlusion:null,occluders:[],distance:null,truncated:false});selected={kind:'person',index:objects.length-1};}else{ignoreRegions.push(box);selected={kind:'ignore',index:ignoreRegions.length-1};}touch();}else{selected=null;const matches=[];objects.forEach((o,i)=>{if(contains(o.box,end))matches.push({kind:'person',index:i,area:o.box[2]*o.box[3]});});ignoreRegions.forEach((box,i)=>{if(contains(box,end))matches.push({kind:'ignore',index:i,area:box[2]*box[3]});});matches.sort((a,b)=>a.area-b.area);if(matches.length)selected={kind:matches[0].kind,index:matches[0].index};}start=drag=null;render();};
+canvas.onpointercancel=()=>{start=drag=null;draw();};
+function mutateSelected(callback){if(!editable()||!selectedObject())return;remember();callback(selectedObject());touch();render();}
+$('occlusion').onchange=()=>mutateSelected(object=>{object.occlusion=$('occlusion').value||null;if(object.occlusion==='none')object.occluders=[];});
+$('distance').onchange=()=>mutateSelected(object=>{object.distance=$('distance').value||null;});
+$('truncated').onchange=()=>mutateSelected(object=>{object.truncated=$('truncated').checked;});
+document.querySelectorAll('#occluders input').forEach(input=>input.onchange=()=>mutateSelected(object=>{object.occluders=[...document.querySelectorAll('#occluders input:checked')].map(node=>node.value);}));
+$('reason').addEventListener('focus',()=>{if(editable())remember();});$('reason').oninput=()=>{if(editable())touch();};
+function removeSelected(){if(!editable()||!selected)return;remember();if(selected.kind==='person')objects.splice(selected.index,1);else ignoreRegions.splice(selected.index,1);selected=null;touch();render();}
+function undo(){if(!editable()||!history.length)return;const previous=history.pop();objects=previous.objects;ignoreRegions=previous.ignoreRegions;selected=previous.selected;$('reason').value=previous.reason;touch();render();}
+function setMode(mode){if(!editable())return;drawMode=mode;$('person-mode').classList.toggle('mode-active',mode==='person');$('ignore-mode').classList.toggle('mode-active',mode==='ignore');$('person-mode').setAttribute('aria-pressed',mode==='person');$('ignore-mode').setAttribute('aria-pressed',mode==='ignore');message(mode==='person'?'拖动框出每个人的全部可见部分；然后逐人填写属性。':'拖动圈出无法确认的局部区域；清楚的人员仍须逐人标注。');}
+function scopeText(){const scope=String(protocol.independence_scope||''),mode=String(protocol.mode||protocol.selection_mode||'');if(scope.includes('same_day')||mode.includes('temporal_gap')||scope.includes('development'))return '本轮范围：同日未见时段开发验证。其结果不代表新日期、新作业录像的独立验收。';if(scope||mode)return `本轮验证范围：${scope||mode}。样本不参与训练；请按固定规则检查全部画面。`;return '样本不参与训练。是否属于其他日期独立录像，以评估协议和来源审计为准。';}
+async function load(){const version=++loadVersion;start=drag=null;if(!filtered.length){current=null;objects=[];ignoreRegions=[];selected=null;history=[];image=new Image();dirty=false;loading=false;$('dirty').textContent='';$('position').textContent='无匹配样本';$('details').textContent='当前筛选没有样本。可切换状态查看已完成标注。';$('reason').value='';message('当前筛选已完成或没有匹配样本。');render();return;}loading=true;updateControls();message('正在加载画面…');try{const item=await api('/api/item?index='+filtered[position].index);if(version!==loadVersion)return;const nextImage=new Image();await new Promise((resolve,reject)=>{nextImage.onload=resolve;nextImage.onerror=()=>reject(Error('图片读取失败，请重试。'));nextImage.src='/api/image?index='+item.index;});if(version!==loadVersion)return;current=item;objects=clone(item.objects||[]);ignoreRegions=clone(item.ignore_regions||[]);selected=null;history=[];dirty=false;$('dirty').textContent='';image=nextImage;canvas.width=item.width;canvas.height=item.height;$('reason').value=item.review?.reason||item.reason||'';$('position').textContent=`${position+1} / ${filtered.length}`;$('details').textContent=`${item.camera_id} | ${item.time}\n${item.id}\n${item.width} × ${item.height} | ${item.status}${item.clip_id?' | 片段 '+item.clip_id:''}`;message(readOnly()?'该标注已冻结，只能查看。':'请检查整幅图像，不遗漏遮挡人员；新框的遮挡档位和远近必须逐一选择。');}finally{if(version===loadVersion){loading=false;render();}}}
+async function applyFilter(keepCurrent=true){const old=current?.index;filtered=all.filter(item=>($('camera').value==='all'||item.camera_id===$('camera').value)&&($('filter').value==='all'||item.status===$('filter').value));const previous=keepCurrent?filtered.findIndex(item=>item.index===old):-1;position=previous>=0?previous:Math.min(position,Math.max(0,filtered.length-1));await load();}
+async function reload(keepCurrent=true){const data=await api('/api/items');all=data.items;protocol=data.protocol||protocol;const previous=$('camera').value;$('camera').replaceChildren(new Option('全部','all'));[...new Set(all.map(item=>item.camera_id))].sort().forEach(camera=>$('camera').add(new Option(camera,camera)));$('camera').value=[...$('camera').options].some(option=>option.value===previous)?previous:'all';const stats=data.status;$('progress').textContent=`共 ${stats.total} 帧 · 已标 ${stats.reviewed} · 待标 ${stats.pending} · 排除 ${stats.excluded} · 人员 ${stats.people??0}`;$('scope').textContent=scopeText();await applyFilter(keepCurrent);}
+function mayLeave(){return !dirty||confirm('当前修改尚未保存，仍然切换画面？');}
+async function move(delta){if(loading||saving||!filtered.length||!mayLeave())return;const next=Math.max(0,Math.min(filtered.length-1,position+delta));if(next===position)return;position=next;await load();}
+function validate(){for(let index=0;index<objects.length;index++){const object=objects[index];if(!isComplete(object)){selected={kind:'person',index};render();throw Error(`人员 ${index+1} 的属性尚未填完：请选择遮挡比例、远近；有遮挡时至少选择一种遮挡物。`);}if(object.occlusion==='none'&&object.occluders.length)throw Error(`人员 ${index+1} 为无遮挡，不能同时选择遮挡物。`);}}
+async function save(kind){if(!editable())return;const excluding=kind==='excluded',negative=kind==='negative';if(excluding&&!$('reason').value.trim())throw Error('排除此帧前，请在右侧填写排除原因。');if(negative&&objects.length)throw Error('当前还有人员框。有人时请“保存标注”；仅在误画时删除人员框后再确认无人。');if(!excluding&&!negative&&!objects.length)throw Error(ignoreRegions.length?'只有忽略区域时，请使用“无可确认人员 + 忽略区域并保存”。':'空标签请使用“确认无人并保存”。');if(!excluding)validate();if(negative&&!confirm(ignoreRegions.length?'确认本帧没有可确认人员，且不确定区域均已圈为忽略区域？此操作不表示整帧无人。':'确认已检查整幅图像，画面中没有任何人员？'))return;const payload={index:current.index,status:excluding?'excluded':'reviewed',objects:clone(objects),ignore_regions:clone(ignoreRegions),confirm_empty:negative,reason:$('reason').value.trim()};saving=true;updateControls();try{await api('/api/review',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});dirty=false;$('dirty').textContent='';await reload(true);message('已保存。待标注筛选下已自动显示下一张；所有样本完成后再冻结并评估。');}finally{saving=false;render();}}
+function safely(callback){return(...args)=>Promise.resolve().then(()=>callback(...args)).catch(error=>message(error.message,true));}
+$('prev').onclick=safely(()=>move(-1));$('next').onclick=safely(()=>move(1));$('save').onclick=safely(()=>save('reviewed'));$('negative').onclick=safely(()=>save('negative'));$('exclude').onclick=safely(()=>save('excluded'));$('remove').onclick=removeSelected;$('undo').onclick=undo;$('person-mode').onclick=()=>setMode('person');$('ignore-mode').onclick=()=>setMode('ignore');
+$('zoom').onclick=()=>{const actual=canvas.classList.toggle('actual');$('zoom').textContent=actual?'适应窗口':'查看原尺寸';$('zoom').setAttribute('aria-pressed',actual);};
+for(const id of ['camera','filter']){const select=$(id);select.dataset.previous=select.value;select.onchange=safely(async()=>{if(loading||saving||!mayLeave()){select.value=select.dataset.previous;return;}select.dataset.previous=select.value;position=0;await applyFilter(false);});}
+document.onkeydown=event=>{const tag=event.target.tagName;if(['INPUT','SELECT','TEXTAREA'].includes(tag)||event.target.isContentEditable)return;if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==='z'){undo();event.preventDefault();return;}if(event.ctrlKey||event.metaKey||event.altKey)return;const key=event.key.toLowerCase();if(key==='delete'){removeSelected();event.preventDefault();}if(key==='arrowleft'||key==='p'){safely(()=>move(-1))();event.preventDefault();}if(key==='arrowright'||key==='n'){safely(()=>move(1))();event.preventDefault();}if(key==='s'){safely(()=>save('reviewed'))();event.preventDefault();}};
+window.onbeforeunload=event=>{if(dirty){event.preventDefault();event.returnValue='';}};
+const query=new URLSearchParams(location.search);if([...$('filter').options].some(option=>option.value===query.get('status')))$('filter').value=query.get('status');$('filter').dataset.previous=$('filter').value;
+safely(async()=>{
+  await reload(false);
+  const requested=query.get('sample');
+  if(!requested)return;
+  const target=all.find(item=>item.id===requested);
+  if(!target){message('指定样本不存在，请从当前列表选择。',true);return;}
+  if(!filtered.some(item=>item.index===target.index)){
+    $('camera').value='all';$('filter').value='all';
+    $('camera').dataset.previous='all';$('filter').dataset.previous='all';
+    await applyFilter(false);
+  }
+  position=filtered.findIndex(item=>item.index===target.index);
+  await load();
+})();
+</script>
+</body>
+</html>
